@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="Javascript忍者秘籍📒"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/06/24/javascript-ninja/"/>
+
+
+<meta name="description" content="Chapter 3函数是第一型 他们可以通过字面量进行创建 他们可以赋值给变量，数组或其他对象的属性 他们可以作为函数的返回值进行返回 他们可以拥有动态的创建并赋值的属性 此外函数还可以被调用( invoked )&amp;lt;一般以异步方式进行调用&amp;gt;  浏览器的事件轮询类似于图形用户界面( GUI )和桌面应用程序，事件轮询大多采用下面的机制：  创建用户界面 进入轮询，等待时间触发 调用时间处">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript忍者秘籍📒">
+<meta property="og:url" content="http://yoursite.com/2016/06/24/javascript-ninja/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="Chapter 3函数是第一型 他们可以通过字面量进行创建 他们可以赋值给变量，数组或其他对象的属性 他们可以作为函数的返回值进行返回 他们可以拥有动态的创建并赋值的属性 此外函数还可以被调用( invoked )&amp;lt;一般以异步方式进行调用&amp;gt;  浏览器的事件轮询类似于图形用户界面( GUI )和桌面应用程序，事件轮询大多采用下面的机制：  创建用户界面 进入轮询，等待时间触发 调用时间处">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xspf8.com2.z0.glb.clouddn.com/1163471-b33dedb26f6aff09.jpg">
+<meta property="og:image" content="http://img.keenwon.com/2016/03/20160314212504_39150.png">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript忍者秘籍📒">
+<meta name="twitter:description" content="Chapter 3函数是第一型 他们可以通过字面量进行创建 他们可以赋值给变量，数组或其他对象的属性 他们可以作为函数的返回值进行返回 他们可以拥有动态的创建并赋值的属性 此外函数还可以被调用( invoked )&amp;lt;一般以异步方式进行调用&amp;gt;  浏览器的事件轮询类似于图形用户界面( GUI )和桌面应用程序，事件轮询大多采用下面的机制：  创建用户界面 进入轮询，等待时间触发 调用时间处">
+<meta name="twitter:image" content="http://7xspf8.com2.z0.glb.clouddn.com/1163471-b33dedb26f6aff09.jpg">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> Javascript忍者秘籍📒 · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Javascript忍者秘籍📒
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年6月24日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Chapter-3"><span class="toc-text">Chapter 3</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#函数是第一型"><span class="toc-text">函数是第一型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#浏览器的事件轮询"><span class="toc-text">浏览器的事件轮询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#回调"><span class="toc-text">回调</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#函数声明"><span class="toc-text">函数声明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#函数调用"><span class="toc-text">函数调用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Chapter-6-原型与面向对象"><span class="toc-text">Chapter 6 原型与面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-实例化和原型"><span class="toc-text">1. 实例化和原型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-通过构造器判断对象类型"><span class="toc-text">2.通过构造器判断对象类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-继承与原型链"><span class="toc-text">3.继承与原型链</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#编写类风格的代码"><span class="toc-text">编写类风格的代码</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h4 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3"></a>Chapter 3</h4><h5 id="函数是第一型"><a href="#函数是第一型" class="headerlink" title="函数是第一型"></a>函数是第一型</h5><ol>
+<li>他们可以通过字面量进行创建</li>
+<li>他们可以赋值给变量，数组或其他对象的属性</li>
+<li>他们可以作为函数的返回值进行返回</li>
+<li>他们可以拥有动态的创建并赋值的属性</li>
+<li>此外函数还可以被调用( invoked )&lt;一般以异步方式进行调用&gt;</li>
+</ol>
+<h5 id="浏览器的事件轮询"><a href="#浏览器的事件轮询" class="headerlink" title="浏览器的事件轮询"></a>浏览器的事件轮询</h5><p>类似于图形用户界面( GUI )和桌面应用程序，事件轮询大多采用下面的机制：</p>
+<ol>
+<li>创建用户界面</li>
+<li>进入轮询，等待时间触发</li>
+<li>调用时间处理程序( addEventListener )</li>
+</ol>
+<p>浏览器中，以下事件有可能穿插发生：<br><strong><em>浏览器事件，网络事件，用户事件，计时器事件</em></strong></p>
+<p>浏览器的事件轮询是单线程的(single-threaded)。每个事件是按照队列中所放置的位置来处理的。</p>
+<h5 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h5><p>我们定义一个函数，以便其他的一些代码在合适的地方回头再调用它。<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用比较器进行排序</span></div><div class="line"><span class="comment">//array.sort()方法有一个重载，接受一个包含比较方法的对象</span></div><div class="line">var <span class="keyword">value</span> = [ <span class="number">1</span>,<span class="number">34</span>,<span class="number">23</span>,<span class="number">65</span>,<span class="number">12</span>,<span class="number">9</span> ];</div><div class="line"><span class="keyword">value</span>.sort( <span class="keyword">function</span> ( <span class="keyword">value</span><span class="number">1</span>,<span class="keyword">value</span><span class="number">2</span> )&#123; <span class="keyword">return</span> <span class="keyword">value</span><span class="number">2</span> - <span class="keyword">value</span><span class="number">1</span>; &#125;);</div></pre></td></tr></table></figure></p>
+<h5 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h5><ol>
+<li>命名一个函数时，该名称在整个函数的声明范围内是有效的。如果一个函数声明在顶层，那么window对象上的同名属性将引用到该函数。</li>
+</ol>
+<p><img src="http://7xspf8.com2.z0.glb.clouddn.com/1163471-b33dedb26f6aff09.jpg" alt="函数会直接声明到顶层对象的同名属性"></p>
+<ol>
+<li>作用域</li>
+</ol>
+<ul>
+<li>变量声明的作用域开始于声明的地方，结束于所在函数的结尾，与代码嵌套无关。</li>
+<li><p>命名函数的作用域是指声明该函数的整个函数范围，与代码嵌套无关。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="comment">/* typeof inner ==='function' */</span> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inner</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="comment">//some code here</span></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>inner( )声明在整个 outer( )中都是可用的，而数字变量只是从声明处到函数结尾处才可被调用。函数在其作用域范围内可以被提前引用。</p>
+</li>
+</ul>
+<h5 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h5><ul>
+<li>如果实际传入的参数数量大于函数声明的形参数量时，超出的参数不会配给形参名称。</li>
+</ul>
+<ul>
+<li>当形参数量大于实际参数数量，则没有对应参数的形参会赋值为 undefined</li>
+<li>所有的函数调用都会传递两个隐式参数：arguments和this</li>
+<li>arguments参数，类数组结构(可使用length，可使用下标)</li>
+<li>this参数，更适合称作调用上下文</li>
+</ul>
+<ol>
+<li>作为函数进行调用<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span> <span class="params">()</span></span>&#123;&#125;;</div><div class="line">hello();</div><div class="line"><span class="keyword">var</span> hi = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;;</div><div class="line">hi();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>以此种方法进行调用时，函数的上下文是全局上下文–window对象</p>
+<ol>
+<li>作为方法进行调用 –其上下文对象是方法的拥有者</li>
+<li>作为构造器进行调用 –其上下文对象是新创建的实例对象</li>
+<li>apply()和call()可以显式的指定任何一个对象作为其函数上下文。 </li>
+</ol>
+<h4 id="Chapter-6-原型与面向对象"><a href="#Chapter-6-原型与面向对象" class="headerlink" title="Chapter 6 原型与面向对象"></a>Chapter 6 原型与面向对象</h4><h5 id="1-实例化和原型"><a href="#1-实例化和原型" class="headerlink" title="1. 实例化和原型"></a>1. 实例化和原型</h5><ul>
+<li><p>对象实例化<br>JavaScript通过构造器执行 new 操作符来初始化一个新对象。</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//声明一个对象，并将对象初始化到已知状态</span></div><div class="line"><span class="keyword">var</span> o = <span class="comment">&#123;&#125;</span>;</div><div class="line">o.<span class="keyword">name</span> = <span class="string">'Beginning'</span>;</div><div class="line">o.age = <span class="number">16</span>;</div><div class="line">o.job = <span class="string">'front-end'</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>原型作为对象概览<br>函数作为构造器进行调用时，函数的原型是新对象的概览。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span></span>&#123;&#125;;</div><div class="line">    Ninja.prototype.swingSword = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> ninja1 = Ninja();</div><div class="line">    <span class="comment">//此时对函数进行函数调用，则什么都没有发生</span></div><div class="line">    <span class="comment">// ninja1 = undefined </span></div><div class="line">    <span class="keyword">var</span> ninja2 = <span class="keyword">new</span> Ninja();</div><div class="line">    <span class="comment">//将函数作为构造器调用，不仅新对象实例被创建，而且函数原型上的方法也可以调用</span></div><div class="line">  &lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>实例属性<br>使用 new 操作符将函数作为构造器进行调用时，其上下文被定义为新对象实例。除了通过原型给函数附加属性的形式之外，我们还可在构造器函数内通过this参数初始化值。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="keyword">this</span>.swung = <span class="literal">false</span>;</div><div class="line"><span class="keyword">this</span>.swingSword = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>&#123;</div><div class="line"><span class="keyword">return</span> !<span class="keyword">this</span>.swung;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">Ninja.prototype.swingSword = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> ninja2 = <span class="keyword">new</span> Ninja();</div><div class="line"><span class="comment">//在构造器内创建的实例方法会阻挡在原型上创建的同名方法。</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>协调引用<br><strong><em>原型的改变会影响已经创建的对象</em></strong><br><strong><em>查找属性时，首先查找对象自身，如果没找到，再查找构造器原型</em></strong></p>
+</li>
+</ul>
+<h5 id="2-通过构造器判断对象类型"><a href="#2-通过构造器判断对象类型" class="headerlink" title="2.通过构造器判断对象类型"></a>2.通过构造器判断对象类型</h5><p>我们不用知道原有的构造器函数就可以再次创建一个新实例。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span></span>()&#123;&#125;;</div><div class="line"><span class="keyword">var</span> ninja = <span class="keyword">new</span> <span class="type">Ninja</span>()&#123;&#125;;</div><div class="line"><span class="keyword">var</span> ninja2 = <span class="keyword">new</span> <span class="type">ninja</span>.constructor();</div></pre></td></tr></table></figure></p>
+<h5 id="3-继承与原型链"><a href="#3-继承与原型链" class="headerlink" title="3.继承与原型链"></a>3.继承与原型链</h5><p>创建一个原型链最好的方法是，使用一个对象的实例作为另一个对象的原型。例如<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//<span class="type">Ninja</span>实例的原型将是<span class="type">Person</span>的一个实例，该实例不仅拥有原型，还持有<span class="type">SuperClass</span>的所有属性</div><div class="line"><span class="type">Ninja</span>.proto<span class="keyword">type</span> = new <span class="type">Person</span>();</div></pre></td></tr></table></figure></p>
+<p><img src="http://img.keenwon.com/2016/03/20160314212504_39150.png" alt=""></p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Super() &#123;&#125;</div><div class="line"> </div><div class="line">function Sub() &#123;&#125;</div><div class="line">Sub.prototype = new Super();</div><div class="line">Sub.prototype.constructor = Sub;</div><div class="line"> </div><div class="line">var <span class="function"><span class="keyword">sub</span> = <span class="title">new</span> <span class="title">Sub</span></span>();</div><div class="line"> </div><div class="line">Sub.prototype.constructor === Sub; <span class="regexp">//</span> ② true</div><div class="line"><span class="function"><span class="keyword">sub</span>.<span class="title">constructor</span> === <span class="title">Sub</span></span>; // ④ true</div><div class="line"><span class="function"><span class="keyword">sub</span>.__<span class="title">proto__</span> === <span class="title">Sub</span>.<span class="title">prototype</span></span>; // ⑤ true</div><div class="line">Sub.prototype.__proto_<span class="number">_</span> == Super.prototype; <span class="regexp">//</span> ⑦ true</div></pre></td></tr></table></figure>
+<p><a href="http://keenwon.com/1524.html" target="_blank" rel="external">http://keenwon.com/1524.html</a><br>下面是一种可能的 forEach()实现<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//先检查是否有原有方法</span></div><div class="line"><span class="keyword">if</span>(!<span class="keyword">Array</span>.prototype.<span class="keyword">forEach</span>)&#123;</div><div class="line"><span class="keyword">Array</span>.prototype.<span class="keyword">forEach</span> = <span class="function"><span class="keyword">function</span> <span class="params">(callback,context)</span></span>&#123;</div><div class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; this.length; i++ )&#123;</div><div class="line"><span class="comment">//context||null 防止将undefined传递给call()</span></div><div class="line">callback.call(context || <span class="keyword">null</span>, this[i], i, this);</div><div class="line">&#125;</div><div class="line">&#125;;</div><div class="line">&#125;</div><div class="line">[a,b,c].<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span><span class="params">(value,index,array)</span></span>&#123;</div><div class="line">assert(value,<span class="string">"Is in position"</span>+ index +<span class="string">"out of"</span> +(<span class="keyword">array</span>.length<span class="number">-1</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h5 id="编写类风格的代码"><a href="#编写类风格的代码" class="headerlink" title="编写类风格的代码"></a>编写类风格的代码</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过Object创建一个Person类</span></div><div class="line"><span class="keyword">var</span> Person = <span class="built_in">Object</span>.subClass(&#123;</div><div class="line"><span class="attr">init</span>: <span class="function"><span class="keyword">function</span>(<span class="params">isDancing</span>)</span>&#123;</div><div class="line"><span class="keyword">this</span>.dancing = isDancing;</div><div class="line">&#125;,</div><div class="line"><span class="attr">dance</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.dancing;</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line"><span class="comment">//通过Person创建一个Ninja类</span></div><div class="line"><span class="keyword">var</span> Ninja = Person.subClass(&#123;</div><div class="line"><span class="attr">init</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">this</span>._super(<span class="literal">false</span>);</div><div class="line">&#125;,</div><div class="line"><span class="attr">dance</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>._super();</div><div class="line">&#125;,</div><div class="line"><span class="attr">swingSword</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="literal">true</span>);</div><div class="line"><span class="comment">//person.dance() is true</span></div><div class="line"><span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();</div><div class="line"><span class="comment">//ninja.dance() is true</span></div><div class="line"><span class="comment">//ninja.swingSword() is true</span></div><div class="line"><span class="comment">//person instanceof Person is true</span></div><div class="line"><span class="comment">//Ninja is a Ninja and a Person</span></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/07/01/30days-React-Native/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">30days-React-Native</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/06/24/css-sercet-first/">
+        <span class="next-text nav-default">CSS揭秘📒</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

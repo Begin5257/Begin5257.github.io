@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="学习总结"/>
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/"/>
+
+
+<meta name="description" content="学习总结">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Beginning">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="学习总结">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Beginning">
+<meta name="twitter:description" content="学习总结">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/07/14/初探redux/">初探redux</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年7月14日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h4 id="初探redux"><a href="#初探redux" class="headerlink" title="初探redux"></a>初探redux</h4><ol>
+<li><p>三大原则</p>
+<ul>
+<li><p>单一数据源</p>
+<p>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。</p>
+<p>来自服务端的 state 可以无需编写更多代码的情况下被序列化并注入客户端中。</p>
+</li>
+<li><p>State 是只读的</p>
+<p>唯一改变 state 的方法就是触发 action ，action 是一个用于描述已发生事件的普通对象。</p>
+<p>所有的修改都被集中化处理，且按照一个接一个的顺序执行，不用担心 race condition 的出现。</p>
+<p>Action 就是普通对象，可以被 console 打印、序列化、储存、后期调试。</p>
+</li>
+<li><p>使用纯函数来执行修改</p>
+</li>
+<li><p>为了描述 action 如何改变 state tree，需要编写 reducers</p>
+</li>
+<li><p>Reducer 只是一些纯函数，它接收先前的 state 和 action，并返回新的 state。</p>
+</li>
+<li><p>因为 reducer 只是函数，你可以控制它们被调用的顺序，传入附加数据，甚至编写可复用的 reducer 来处理一些通用任务，如分页器。</p>
+</li>
+</ul>
+</li>
+<li><p>先前技术</p>
+<ul>
+<li><p>Redux 的灵感来源于 Flux 的几个重要特性。和 Flux 一样，Redux 规定，将模型的更新逻辑全部集中于一个特定的层（Flux 里的 store，Redux 里的 reducer）。Flux 和 Redux 都不允许程序直接修改数据，而是用一个叫作 “action” 的普通对象来对更改进行描述。</p>
+</li>
+<li><p><strong>Redux 并没有 dispatcher 的概念</strong>。原因是它依赖纯函数来替代事件处理器。纯函数构建简单，也不需额外的实体来管理它们。你可以将这点看作这两个框架的差异或细节实现，取决于你怎么看 Flux。Flux 常常<a href="https://speakerdeck.com/jmorrell/jsconf-uy-flux-those-who-forget-the-past-dot-dot-dot" target="_blank" rel="external">被表述为 <code>(state, action) =&gt; state</code></a>。从这个意义上说，Redux 无疑是 Flux 架构的实现，且得益于纯函数而更为简单。</p>
+</li>
+<li><p>应该在 reducer 中返回一个新对象来更新 state 。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> counter = <span class="function">(<span class="params">state = <span class="number">0</span>, action</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'INCREMENT'</span>:</div><div class="line">      <span class="keyword">return</span> state + <span class="number">1</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'DECREMENT'</span>:</div><div class="line">      <span class="keyword">return</span> state - <span class="number">1</span>;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">return</span> state;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> &#123; createStore &#125; = Redux;</div><div class="line"><span class="keyword">const</span> store = createStore(counter);</div><div class="line"><span class="keyword">const</span> render = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">document</span>.body.innerText = store.getState();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(store.getState());</div><div class="line"><span class="comment">// 0 </span></div><div class="line"></div><div class="line">store.dispatch(&#123; <span class="attr">type</span>: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line"><span class="built_in">console</span>.log(store.getState());</div><div class="line"><span class="comment">// 1</span></div><div class="line"></div><div class="line">store.subscribe(render);</div><div class="line">render();</div><div class="line"></div><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, ()=&gt; &#123;</div><div class="line">  store.dispatch(&#123; <span class="attr">type</span>: <span class="string">'INCREMENT'</span> &#125;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">expect(</div><div class="line">	counter(<span class="number">0</span>, &#123; <span class="attr">type</span>: <span class="string">'INCREMENT'</span> &#125;)</div><div class="line">).toEqual(<span class="number">1</span>);</div><div class="line"></div><div class="line">expect(</div><div class="line">	counter(<span class="number">1</span>, &#123; <span class="attr">type</span>: <span class="string">'INCREMENT'</span> &#125;)</div><div class="line">).toEqual(<span class="number">2</span>);</div><div class="line"></div><div class="line">expect(</div><div class="line">	counter(<span class="number">2</span>, &#123; <span class="attr">type</span>: <span class="string">'DECREMENT'</span> &#125;)</div><div class="line">).toEqual(<span class="number">1</span>);</div><div class="line"></div><div class="line">expect(</div><div class="line">	counter(<span class="number">1</span>, &#123; <span class="attr">type</span>: <span class="string">'DECREMENT'</span> &#125;)</div><div class="line">).toEqual(<span class="number">0</span>);</div></pre></td></tr></table></figure>
+<p>subscribe , getState() , render</p>
+</li>
+</ul>
+</li>
+<li><p>基础知识</p>
+<p><img src="http://f8-app.liaohuqiu.net/static/images/redux_flowchart.png" alt=""></p>
+<ul>
+<li><p><strong>Action</strong></p>
+</li>
+<li><p><strong>Action</strong> 是把数据从应用（译者注：这里之所以不叫 view 是因为这些数据有可能是服务器响应，用户输入或其它非 view 的数据 ）传到 store 的有效载荷。它是 store 数据的<strong>唯一</strong>来源。一般来说你会通过<a href="http://cn.redux.js.org/docs/api/Store.html#dispatch" target="_blank" rel="external"><code>store.dispatch()</code></a> 将 action 传到 store。</p>
+</li>
+<li><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> ADD_TODO = <span class="function">(<span class="params">text</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line"> 	<span class="keyword">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">    id: nextTodoId++,</div><div class="line">    text</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Action 本质上是 JavaScript 普通对象。我们约定，action 内必须使用一个字符串类型的 <code>type</code> 字段来表示将要执行的动作。多数情况下，<code>type</code> 会被定义成字符串常量。当应用规模越来越大时，建议使用单独的模块或文件来存放 action。</p>
+</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; ADD_TODO, REMOVE_TODO &#125; <span class="keyword">from</span> <span class="string">'./actionType'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>我们应当尽量减少在 action 中传递数据。</p>
+</li>
+<li><p>Action 创建函数</p>
+</li>
+<li><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">addTodo</span>(text) &#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">&#123;</span></div><div class="line">    <span class="keyword">type</span>: ADD_TODO,</div><div class="line">    text</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Reducer</strong></p>
+</li>
+<li><h5 id="处理-Reducer-关系时的注意事项"><a href="#处理-Reducer-关系时的注意事项" class="headerlink" title="处理 Reducer 关系时的注意事项"></a>处理 Reducer 关系时的注意事项</h5><blockquote>
+<p> 开发复杂的应用时，不可避免会有一些数据相互引用。建议你尽可能地把 state 范式化，不存在嵌套。把所有数据放到一个对象里，每个数据以 ID 为主键，不同实体或列表间通过 ID 相互引用数据。把应用的 state 想像成数据库。这种方法在 <a href="https://github.com/gaearon/normalizr" target="_blank" rel="external">normalizr</a> 文档里有详细阐述。例如，实际开发中，在 state 里同时存放 <code>todosById: {只要传入参数相同，返回计算得到的下一个 state 就一定相同。没有特殊情况、没有副作用，没有 API 请求、没有变量修改，单纯执行计算。 id -&gt; todo }</code> 和 <code>todos: array</code> 是比较好的方式，本文中为了保持示例简单没有这样处理。</p>
+</blockquote>
+</li>
+<li><p>Action 处理</p>
+</li>
+<li><p>确定 state 对象结构之后，就可以开始开发 reducer。reducer 就是一个纯函数，接收旧的 state 和 action，返回新的 state。</p>
+</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(previousState, action) =&gt; newState</div></pre></td></tr></table></figure>
+</li>
+<li><p>之所以称作 reducer 是因为它将被传递给 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external"><code>Array.prototype.reduce(reducer, ?initialValue)</code></a> 方法。保持 reducer 纯净非常重要。<strong>永远不要</strong>在 reducer 里做这些操作：</p>
+<ul>
+<li>修改传入参数；</li>
+<li>执行有副作用的操作，如 API 请求和路由跳转；</li>
+<li>调用非纯函数，如 <code>Date.now()</code> 或 <code>Math.random()</code>。</li>
+</ul>
+</li>
+<li><p><strong>只要传入参数相同，返回计算得到的下一个 state 就一定相同。没有特殊情况、没有副作用，没有 API 请求、没有变量修改，单纯执行计算。</strong></p>
+</li>
+<li><p>Redux 首次执行时，state 为 undefined ，此时可以借机设置并返回应用的初始 state。</p>
+</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; VisibilityFilters &#125; <span class="keyword">from</span> <span class="string">'./actions'</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> initialState = &#123;</div><div class="line">  <span class="attr">visibilityFilter</span>: VisibilityFilters.SHOW_ALL,</div><div class="line">  <span class="attr">todos</span>: []</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">todoApp</span>(<span class="params">state, action</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> state === <span class="string">'undefined'</span>) &#123;</div><div class="line">    <span class="keyword">return</span> initialState</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 这里暂不处理任何 action，</span></div><div class="line">  <span class="comment">// 仅返回传入的 state。</span></div><div class="line">  <span class="keyword">return</span> state</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ol>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/07/01/30days-React-Native/">30days-React-Native</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年7月1日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">1. </span>npm install -g react-native-cli</div><div class="line"><span class="bullet">2. </span>react-native init YourProjectName</div><div class="line"><span class="bullet">3. </span>XCode 中打开刚刚创建的工程-AwesomeProject/ios/AwesomeProject.xcodeproj</div><div class="line"><span class="bullet">4. </span>run</div><div class="line"><span class="bullet">5. </span>在index.ios.js中进行修改</div></pre></td></tr></table></figure>
+<h4 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">display: flex; //块级伸缩容器</div><div class="line">display: inline-flex; //行内级伸缩容器</div><div class="line"></div><div class="line">flex-direction: row; //水平方向，从左到右</div><div class="line">flex-direction: reverse; //水平方向，从右到左</div><div class="line">flex-direction: column; //垂直方向，从上到下</div><div class="line">flex-direction: column-reverse; //垂直方向，从下到上</div><div class="line"></div><div class="line">flex-wrap: nowrap; //默认值，不换行</div><div class="line">flex-wrap: wrap; //允许换行</div><div class="line">flex-wrap: wrap-reverse; //允许换行，若水平轴为主轴，则从下到上</div><div class="line"></div><div class="line">flex-flow: row nowrap;</div><div class="line">//伸缩项目在主轴上的对齐方式</div><div class="line">justify-content: flex-start; //默认值，从主轴起始位置靠齐</div><div class="line">justify-content: flex-end; //从主轴线结束位置靠齐</div><div class="line">justify-content: center;</div><div class="line">justify-content: space-between; //均匀分布在主轴，中间有空格</div><div class="line">justify-content: space-around; //同上，但是两边各会保留一半空间</div><div class="line">//伸缩项目在交叉轴上的对齐方式</div><div class="line">align-items: flex-start; //交叉轴起始位置</div><div class="line">align-items: flex-end;</div><div class="line">align-items: center;</div><div class="line">align-items: baseline; //根据基线对齐</div><div class="line">align-items: stretch; //交叉轴方向拉伸至整个容器</div><div class="line">//伸缩项目换行后在交叉轴上的对齐方式</div><div class="line">align-content: flex-start;</div><div class="line">align-content: flex-end;</div><div class="line">align-content: center;</div><div class="line">align-content: space-between; //伸缩项目在交叉轴中平均分布</div><div class="line">align-content: space-around; //同上，但在两边各有一半空间</div><div class="line">align-content: strectch; //在交叉轴延展以占用剩余空间</div><div class="line"></div><div class="line">order: -1; //定义项目的排列顺序</div><div class="line">flex-grow: 2; //定义伸缩项目的放大比例</div><div class="line">flex-shrink: 3; //定义伸缩项目的收缩能力</div><div class="line">flex-basis: 100px; //定义伸缩项目的基准值</div><div class="line">flex: none | flex-grow flex-shrink flex-basis</div></pre></td></tr></table></figure>
+<p>在react-native中支持flexbox</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">alignItems: flex-start | flex-end | center | stretch</div><div class="line">alignSelf: auto | flex-start | flex-end | center | strecth</div><div class="line">flex: number;</div><div class="line">flexDirection: row | column</div><div class="line">flexWrap: wrap | nowrap</div><div class="line">justifyContent: flex-start | flex-end | center | space-between | space-around</div></pre></td></tr></table></figure>
+<h4 id="克隆项目"><a href="#克隆项目" class="headerlink" title="克隆项目"></a>克隆项目</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone https:<span class="comment">//github.com/fangwei716/30-days-of-react-native.git</span></div><div class="line">git checkout <span class="symbol">RN@</span><span class="number">0.25</span></div><div class="line">react-<span class="keyword">native</span>-vector-icons</div><div class="line">需要手动将字体添加到Xcode的项目中</div><div class="line">首先将node_modules/react-<span class="keyword">native</span>-vector-icons中的Fonts拖拽到Xocde中</div><div class="line">编辑 Info.plist 添加你需要的字体</div></pre></td></tr></table></figure>
+<h4 id="index-ios-js"><a href="#index-ios-js" class="headerlink" title="index.ios.js"></a>index.ios.js</h4><ol>
+<li><p>API</p>
+<ul>
+<li><strong><em>AppRegistry是 JS 运行所有 React Native 应用的入口。</em></strong><br>应用的根组件应当通过AppRegistry.registerComponent方法注册自己，然后原生系统才可以加载应用的代码包并且在启动完成之后通过调用AppRegistry.runApplication来真正运行应用。</li>
+<li><p><strong><em>TouchableHighlight 当按下的时候，封装的视图的不透明度会降低</em></strong><br>同时会有一个底层的颜色透过而被用户看到，使得视图变暗或变亮。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">renderButton: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">TouchableHighlight</span> <span class="attr">onPress</span>=<span class="string">&#123;this._onPressButton&#125;</span>&gt;</span></span></div><div class="line">      <span class="tag">&lt;<span class="name">Image</span></span></div><div class="line">        <span class="attr">style</span>=<span class="string">&#123;styles.button&#125;</span></div><div class="line">        <span class="attr">source</span>=<span class="string">&#123;require(</span>'<span class="attr">.</span>/<span class="attr">button.png</span>')&#125;</div><div class="line">      /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">TouchableHighlight</span>&gt;</span></div><div class="line">  );</div><div class="line">&#125;,</div><div class="line">//TouchableHighlight只支持一个子节点</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong><em>NavigatorIOS 包装了UIKit的导航功能，可以使用左划功能来返回上一界面</em></strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>路由</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一个路由是用于描述导航器中一页的对象。</span></div><div class="line"><span class="attribute">render</span>: function() &#123;</div><div class="line">    return (</div><div class="line">      &lt; NavigatorIOS</div><div class="line">        initialRoute=&#123;&#123;</div><div class="line">          <span class="attribute">component</span>: MyView,</div><div class="line">          <span class="attribute">title</span>: <span class="string">'My View Title'</span>,</div><div class="line">          <span class="attribute">passProps</span>: &#123; <span class="attribute">myProp</span>: <span class="string">'foo'</span> &#125;,</div><div class="line">        &#125;&#125;</div><div class="line">      /&gt;</div><div class="line">    );</div><div class="line">&#125;</div><div class="line"><span class="comment">//现在 MyView 会被导航器渲染出来。它可以通过route</span></div><div class="line">属性获得对应的路由对象，导航器本身，还有所有<span class="selector-tag">passProps</span></div><div class="line">中传递的属性。</div></pre></td></tr></table></figure>
+</li>
+<li><p>导航器</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MyView = React.createClass(&#123;</div><div class="line">    _handleBackButtonPress: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">          <span class="keyword">this</span>.props.navigator.pop();</div><div class="line">    &#125;,</div><div class="line">    _handleNextButtonPress: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">          <span class="keyword">this</span>.props.navigator.push(nextRoute);</div><div class="line">   &#125;,</div><div class="line">  ...</div><div class="line">&#125;);</div><div class="line"><span class="comment">//一个导航器对象包括如下函数:</span></div><div class="line"><span class="comment">//1. push( route ) - 导航器跳转到一个新的路由</span></div><div class="line"><span class="comment">//2. pop() - 回到上一页</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="day1-计时器"><a href="#day1-计时器" class="headerlink" title="day1-计时器"></a>day1-计时器</h4><p>一个IOS系统定时APP，功能与系统定时器一致。<br><img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day1.gif" alt=""></p>
+<p>将页面分为时间显示部分，控制部分，显示计次共三个部分。<br>每个部分独立渲染组件和样式。<br>实现的功能有：启动定时器，计次，停止，复位。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//时间控制部分</span></div><div class="line"><span class="keyword">this</span>.setState(&#123;</div><div class="line">  <span class="attr">currentTime</span>: (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime()</div><div class="line">&#125;)</div><div class="line"><span class="comment">//当前时间 = 累加时间 + 当前时间 - 开始计时时间</span></div><div class="line">countingTime = <span class="keyword">this</span>.state.timeAccumulation + <span class="keyword">this</span>.state.currentTime - <span class="keyword">this</span>.state.initialTime;</div><div class="line"><span class="comment">//换算成时，分，秒</span></div><div class="line">minute = <span class="built_in">Math</span>.floor(countingTime/(<span class="number">60</span>*<span class="number">1000</span>));</div><div class="line">second = <span class="built_in">Math</span>.floor((countingTime<span class="number">-60000</span>*minute)/<span class="number">1000</span>);</div><div class="line">milSecond = <span class="built_in">Math</span>.floor((countingTime%<span class="number">1000</span>)/<span class="number">10</span>);</div><div class="line">seccountingTime = countingTime - <span class="keyword">this</span>.state.recordTime;</div><div class="line">secminute = <span class="built_in">Math</span>.floor(seccountingTime/(<span class="number">60</span>*<span class="number">1000</span>));</div><div class="line"><span class="comment">//这个地方原来的作者写错了6000，在git上提了issue</span></div><div class="line">secsecond = <span class="built_in">Math</span>.floor((seccountingTime<span class="number">-60000</span>*secminute)/<span class="number">1000</span>);</div><div class="line">secmilSecond = <span class="built_in">Math</span>.floor((seccountingTime%<span class="number">1000</span>)/<span class="number">10</span>);</div><div class="line"><span class="comment">//时，分，秒小于10则补零</span></div><div class="line"><span class="keyword">this</span>.setState(&#123;</div><div class="line">  <span class="attr">totalTime</span>: (minute&lt;<span class="number">10</span>? <span class="string">"0"</span>+minute:minute)+<span class="string">":"</span>+(second&lt;<span class="number">10</span>? <span class="string">"0"</span>+second:second)+<span class="string">"."</span>+(milSecond&lt;<span class="number">10</span>? <span class="string">"0"</span>+milSecond:milSecond),</div><div class="line">  <span class="attr">sectionTime</span>: (secminute&lt;<span class="number">10</span>? <span class="string">"0"</span>+secminute:secminute)+<span class="string">":"</span>+(secsecond&lt;<span class="number">10</span>? <span class="string">"0"</span>+secsecond:secsecond)+<span class="string">"."</span>+(secmilSecond&lt;<span class="number">10</span>? <span class="string">"0"</span>+secmilSecond:secmilSecond),</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="day2-天气预报"><a href="#day2-天气预报" class="headerlink" title="day2-天气预报"></a>day2-天气预报</h4><p>一个IOS系统的天气app，数据固定</p>
+<p><img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day2.gif" alt=""></p>
+<p>这一部分比较有难度的是对天气数据的展示处理。</p>
+<p>以及滑动时的状态变化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> propTypes = &#123;</div><div class="line">  <span class="attr">back</span>: React.PropTypes.func.isRequired,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">constructor</span>(props) &#123;</div><div class="line">  <span class="keyword">super</span>(props)</div><div class="line">  <span class="keyword">this</span>.state = &#123;</div><div class="line">    <span class="attr">weather</span>: weatherData,</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">componentDidMount() &#123;</div><div class="line">  StatusBar.setBarStyle(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">_back() &#123;</div><div class="line">  <span class="keyword">this</span>.props.back();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="day3-Twitter开场动画"><a href="#day3-Twitter开场动画" class="headerlink" title="day3-Twitter开场动画"></a>day3-Twitter开场动画</h4><p><img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day3.gif" alt=""></p>
+<p>动画实现的思路是将中间的小图标放大，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">componentDidMount() &#123;</div><div class="line">    Animated.timing(</div><div class="line">       <span class="keyword">this</span>.state.transformAnim,</div><div class="line">       &#123;<span class="attr">toValue</span>: <span class="number">50</span>,</div><div class="line">        <span class="attr">duration</span>: <span class="number">1200</span>,</div><div class="line">        <span class="attr">delay</span>:<span class="number">2000</span>,</div><div class="line">        <span class="attr">easing</span>: Easing.elastic(<span class="number">2</span>),</div><div class="line">      &#125;,</div><div class="line">    ).start();</div><div class="line">    Animated.timing(</div><div class="line">       <span class="keyword">this</span>.state.opacityAnim,</div><div class="line">       &#123;<span class="attr">toValue</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">duration</span>: <span class="number">800</span>,</div><div class="line">        <span class="attr">easing</span>: Easing.elastic(<span class="number">1</span>),</div><div class="line">        <span class="attr">delay</span>:<span class="number">2200</span>,</div><div class="line">      &#125;,</div><div class="line">     ).start();</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">this</span>.props.hideThis();</div><div class="line">    &#125;, <span class="number">3300</span>);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>以及下拉刷新状态的控制</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">constructor</span>() &#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">      <span class="attr">isRefreshing</span>: <span class="literal">false</span>,</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  _onRefresh() &#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123;</div><div class="line">      <span class="attr">isRefreshing</span>: <span class="literal">true</span>,</div><div class="line">    &#125;);</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">this</span>.setState(&#123;</div><div class="line">        <span class="attr">isRefreshing</span>: <span class="literal">false</span>,</div><div class="line">      &#125;);</div><div class="line">    &#125;, <span class="number">1000</span>);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/06/24/javascript-ninja/">Javascript忍者秘籍📒</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年6月24日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h4 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3"></a>Chapter 3</h4><h5 id="函数是第一型"><a href="#函数是第一型" class="headerlink" title="函数是第一型"></a>函数是第一型</h5><ol>
+<li>他们可以通过字面量进行创建</li>
+<li>他们可以赋值给变量，数组或其他对象的属性</li>
+<li>他们可以作为函数的返回值进行返回</li>
+<li>他们可以拥有动态的创建并赋值的属性</li>
+<li>此外函数还可以被调用( invoked )&lt;一般以异步方式进行调用&gt;</li>
+</ol>
+<h5 id="浏览器的事件轮询"><a href="#浏览器的事件轮询" class="headerlink" title="浏览器的事件轮询"></a>浏览器的事件轮询</h5><p>类似于图形用户界面( GUI )和桌面应用程序，事件轮询大多采用下面的机制：</p>
+<ol>
+<li>创建用户界面</li>
+<li>进入轮询，等待时间触发</li>
+<li>调用时间处理程序( addEventListener )</li>
+</ol>
+<p>浏览器中，以下事件有可能穿插发生：<br><strong><em>浏览器事件，网络事件，用户事件，计时器事件</em></strong></p>
+<p>浏览器的事件轮询是单线程的(single-threaded)。每个事件是按照队列中所放置的位置来处理的。</p>
+<h5 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h5><p>我们定义一个函数，以便其他的一些代码在合适的地方回头再调用它。<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用比较器进行排序</span></div><div class="line"><span class="comment">//array.sort()方法有一个重载，接受一个包含比较方法的对象</span></div><div class="line">var <span class="keyword">value</span> = [ <span class="number">1</span>,<span class="number">34</span>,<span class="number">23</span>,<span class="number">65</span>,<span class="number">12</span>,<span class="number">9</span> ];</div><div class="line"><span class="keyword">value</span>.sort( <span class="keyword">function</span> ( <span class="keyword">value</span><span class="number">1</span>,<span class="keyword">value</span><span class="number">2</span> )&#123; <span class="keyword">return</span> <span class="keyword">value</span><span class="number">2</span> - <span class="keyword">value</span><span class="number">1</span>; &#125;);</div></pre></td></tr></table></figure></p>
+<h5 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h5><ol>
+<li>命名一个函数时，该名称在整个函数的声明范围内是有效的。如果一个函数声明在顶层，那么window对象上的同名属性将引用到该函数。</li>
+</ol>
+<p><img src="http://7xspf8.com2.z0.glb.clouddn.com/1163471-b33dedb26f6aff09.jpg" alt="函数会直接声明到顶层对象的同名属性"></p>
+<ol>
+<li>作用域</li>
+</ol>
+<ul>
+<li>变量声明的作用域开始于声明的地方，结束于所在函数的结尾，与代码嵌套无关。</li>
+<li><p>命名函数的作用域是指声明该函数的整个函数范围，与代码嵌套无关。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="comment">/* typeof inner ==='function' */</span> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inner</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="comment">//some code here</span></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>inner( )声明在整个 outer( )中都是可用的，而数字变量只是从声明处到函数结尾处才可被调用。函数在其作用域范围内可以被提前引用。</p>
+</li>
+</ul>
+<h5 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h5><ul>
+<li>如果实际传入的参数数量大于函数声明的形参数量时，超出的参数不会配给形参名称。</li>
+</ul>
+<ul>
+<li>当形参数量大于实际参数数量，则没有对应参数的形参会赋值为 undefined</li>
+<li>所有的函数调用都会传递两个隐式参数：arguments和this</li>
+<li>arguments参数，类数组结构(可使用length，可使用下标)</li>
+<li>this参数，更适合称作调用上下文</li>
+</ul>
+<ol>
+<li>作为函数进行调用<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span> <span class="params">()</span></span>&#123;&#125;;</div><div class="line">hello();</div><div class="line"><span class="keyword">var</span> hi = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;;</div><div class="line">hi();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>以此种方法进行调用时，函数的上下文是全局上下文–window对象</p>
+<ol>
+<li>作为方法进行调用 –其上下文对象是方法的拥有者</li>
+<li>作为构造器进行调用 –其上下文对象是新创建的实例对象</li>
+<li>apply()和call()可以显式的指定任何一个对象作为其函数上下文。 </li>
+</ol>
+<h4 id="Chapter-6-原型与面向对象"><a href="#Chapter-6-原型与面向对象" class="headerlink" title="Chapter 6 原型与面向对象"></a>Chapter 6 原型与面向对象</h4><h5 id="1-实例化和原型"><a href="#1-实例化和原型" class="headerlink" title="1. 实例化和原型"></a>1. 实例化和原型</h5><ul>
+<li><p>对象实例化<br>JavaScript通过构造器执行 new 操作符来初始化一个新对象。</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//声明一个对象，并将对象初始化到已知状态</span></div><div class="line"><span class="keyword">var</span> o = <span class="comment">&#123;&#125;</span>;</div><div class="line">o.<span class="keyword">name</span> = <span class="string">'Beginning'</span>;</div><div class="line">o.age = <span class="number">16</span>;</div><div class="line">o.job = <span class="string">'front-end'</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>原型作为对象概览<br>函数作为构造器进行调用时，函数的原型是新对象的概览。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span></span>&#123;&#125;;</div><div class="line">    Ninja.prototype.swingSword = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> ninja1 = Ninja();</div><div class="line">    <span class="comment">//此时对函数进行函数调用，则什么都没有发生</span></div><div class="line">    <span class="comment">// ninja1 = undefined </span></div><div class="line">    <span class="keyword">var</span> ninja2 = <span class="keyword">new</span> Ninja();</div><div class="line">    <span class="comment">//将函数作为构造器调用，不仅新对象实例被创建，而且函数原型上的方法也可以调用</span></div><div class="line">  &lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>实例属性<br>使用 new 操作符将函数作为构造器进行调用时，其上下文被定义为新对象实例。除了通过原型给函数附加属性的形式之外，我们还可在构造器函数内通过this参数初始化值。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="keyword">this</span>.swung = <span class="literal">false</span>;</div><div class="line"><span class="keyword">this</span>.swingSword = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>&#123;</div><div class="line"><span class="keyword">return</span> !<span class="keyword">this</span>.swung;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">Ninja.prototype.swingSword = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> ninja2 = <span class="keyword">new</span> Ninja();</div><div class="line"><span class="comment">//在构造器内创建的实例方法会阻挡在原型上创建的同名方法。</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>协调引用<br><strong><em>原型的改变会影响已经创建的对象</em></strong><br><strong><em>查找属性时，首先查找对象自身，如果没找到，再查找构造器原型</em></strong></p>
+</li>
+</ul>
+<h5 id="2-通过构造器判断对象类型"><a href="#2-通过构造器判断对象类型" class="headerlink" title="2.通过构造器判断对象类型"></a>2.通过构造器判断对象类型</h5><p>我们不用知道原有的构造器函数就可以再次创建一个新实例。<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ninja</span></span>()&#123;&#125;;</div><div class="line"><span class="keyword">var</span> ninja = <span class="keyword">new</span> <span class="type">Ninja</span>()&#123;&#125;;</div><div class="line"><span class="keyword">var</span> ninja2 = <span class="keyword">new</span> <span class="type">ninja</span>.constructor();</div></pre></td></tr></table></figure></p>
+<h5 id="3-继承与原型链"><a href="#3-继承与原型链" class="headerlink" title="3.继承与原型链"></a>3.继承与原型链</h5><p>创建一个原型链最好的方法是，使用一个对象的实例作为另一个对象的原型。例如<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//<span class="type">Ninja</span>实例的原型将是<span class="type">Person</span>的一个实例，该实例不仅拥有原型，还持有<span class="type">SuperClass</span>的所有属性</div><div class="line"><span class="type">Ninja</span>.proto<span class="keyword">type</span> = new <span class="type">Person</span>();</div></pre></td></tr></table></figure></p>
+<p><img src="http://img.keenwon.com/2016/03/20160314212504_39150.png" alt=""></p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Super() &#123;&#125;</div><div class="line"> </div><div class="line">function Sub() &#123;&#125;</div><div class="line">Sub.prototype = new Super();</div><div class="line">Sub.prototype.constructor = Sub;</div><div class="line"> </div><div class="line">var <span class="function"><span class="keyword">sub</span> = <span class="title">new</span> <span class="title">Sub</span></span>();</div><div class="line"> </div><div class="line">Sub.prototype.constructor === Sub; <span class="regexp">//</span> ② true</div><div class="line"><span class="function"><span class="keyword">sub</span>.<span class="title">constructor</span> === <span class="title">Sub</span></span>; // ④ true</div><div class="line"><span class="function"><span class="keyword">sub</span>.__<span class="title">proto__</span> === <span class="title">Sub</span>.<span class="title">prototype</span></span>; // ⑤ true</div><div class="line">Sub.prototype.__proto_<span class="number">_</span> == Super.prototype; <span class="regexp">//</span> ⑦ true</div></pre></td></tr></table></figure>
+<p><a href="http://keenwon.com/1524.html" target="_blank" rel="external">http://keenwon.com/1524.html</a><br>下面是一种可能的 forEach()实现<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//先检查是否有原有方法</span></div><div class="line"><span class="keyword">if</span>(!<span class="keyword">Array</span>.prototype.<span class="keyword">forEach</span>)&#123;</div><div class="line"><span class="keyword">Array</span>.prototype.<span class="keyword">forEach</span> = <span class="function"><span class="keyword">function</span> <span class="params">(callback,context)</span></span>&#123;</div><div class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; this.length; i++ )&#123;</div><div class="line"><span class="comment">//context||null 防止将undefined传递给call()</span></div><div class="line">callback.call(context || <span class="keyword">null</span>, this[i], i, this);</div><div class="line">&#125;</div><div class="line">&#125;;</div><div class="line">&#125;</div><div class="line">[a,b,c].<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span><span class="params">(value,index,array)</span></span>&#123;</div><div class="line">assert(value,<span class="string">"Is in position"</span>+ index +<span class="string">"out of"</span> +(<span class="keyword">array</span>.length<span class="number">-1</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h5 id="编写类风格的代码"><a href="#编写类风格的代码" class="headerlink" title="编写类风格的代码"></a>编写类风格的代码</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过Object创建一个Person类</span></div><div class="line"><span class="keyword">var</span> Person = <span class="built_in">Object</span>.subClass(&#123;</div><div class="line"><span class="attr">init</span>: <span class="function"><span class="keyword">function</span>(<span class="params">isDancing</span>)</span>&#123;</div><div class="line"><span class="keyword">this</span>.dancing = isDancing;</div><div class="line">&#125;,</div><div class="line"><span class="attr">dance</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.dancing;</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line"><span class="comment">//通过Person创建一个Ninja类</span></div><div class="line"><span class="keyword">var</span> Ninja = Person.subClass(&#123;</div><div class="line"><span class="attr">init</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">this</span>._super(<span class="literal">false</span>);</div><div class="line">&#125;,</div><div class="line"><span class="attr">dance</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>._super();</div><div class="line">&#125;,</div><div class="line"><span class="attr">swingSword</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="literal">true</span>);</div><div class="line"><span class="comment">//person.dance() is true</span></div><div class="line"><span class="keyword">var</span> ninja = <span class="keyword">new</span> Ninja();</div><div class="line"><span class="comment">//ninja.dance() is true</span></div><div class="line"><span class="comment">//ninja.swingSword() is true</span></div><div class="line"><span class="comment">//person instanceof Person is true</span></div><div class="line"><span class="comment">//Ninja is a Ninja and a Person</span></div></pre></td></tr></table></figure>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/06/24/css-sercet-first/">CSS揭秘📒</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年6月24日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h3 id="一些tips"><a href="#一些tips" class="headerlink" title="一些tips"></a>一些tips</h3><ul>
+<li>使用百分比长度来取代固定长度。</li>
+<li>需要在较大分辨率下得到固定宽度时，使用 max-width 而不是 width<br>( max-width 可以适应较小的分辨率，无须媒体查询 )</li>
+<li>不要忘记为替换元素设计一个宽度，值为100%</li>
+<li>当图片进行行列式布局时，可以使用弹性盒模型布局( flex )，或 display : inline-box 加上常规的文本折行来实现</li>
+<li>多列文本时，指定 column-width 列宽，而不是 columm-count 列数。这样就可以在较小的屏幕上自动显示为单列布局</li>
+<li>合理使用简写</li>
+</ul>
+<p>预处理器( Stylus，Sass )</p>
+<ul>
+<li>变量，mixin，函数，规则嵌套</li>
+</ul>
+<h3 id="背景与边框"><a href="#背景与边框" class="headerlink" title="背景与边框"></a>背景与边框</h3><ol>
+<li>半透明边框<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.border-container</span>&#123;</div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">600px</span>;</div><div class="line">        <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"http://7xspf8.com2.z0.glb.qiniucdn.com/1467012841.jpg"</span>) no-repeat;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.border-div</span>&#123;</div><div class="line">        <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">        <span class="attribute">margin</span>: auto <span class="number">50px</span>;</div><div class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid <span class="built_in">rgba</span>(255,255,255,0.5);</div><div class="line">        <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">        <span class="attribute">background-clip</span>: padding-box;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>线上演示：<a href="http://dabblet.com/gist/012289cc14106a1bd7a5" target="_blank" rel="external">http://dabblet.com/gist/012289cc14106a1bd7a5</a></p>
+<ol>
+<li>多重边框<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.div</span> &#123;</div><div class="line"><span class="attribute">background</span>: yellowgreen;</div><div class="line"><span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="number">#655</span>,</div><div class="line">                <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">15px</span> deeppink,</div><div class="line">                <span class="number">0</span> <span class="number">2px</span> <span class="number">5px</span> <span class="number">15px</span> <span class="built_in">rgba</span>(0,0,0,.6);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>线上演示：<a href="http://dabblet.com/gist/525eb8e9cdade71723c1" target="_blank" rel="external">http://dabblet.com/gist/525eb8e9cdade71723c1</a><br><strong><em>若只需要两重边框也可以使用 outline ，可以利用 outline-offset 来控制和元素边缘的间距。( 可为负值 )</em></strong></p>
+<ol>
+<li>灵活的背景定位</li>
+</ol>
+<ul>
+<li>background-position </li>
+<li>background-position + background-origin</li>
+<li>calc( )方案 </li>
+<li>calc( )使用时，一定要在内部的 - 和 + 两个运算符侧各加一个空白符，否则会解析错误🙅</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line"><span class="attribute">background</span>: <span class="built_in">url</span>(http://csssecrets.io/images/code-pirate.svg)</div><div class="line">            no-repeat bottom right <span class="number">#58a</span>;</div><div class="line"><span class="attribute">background-position</span>: <span class="built_in">calc</span>(100% - 20px) <span class="built_in">calc</span>(100% - 10px);</div><div class="line"></div><div class="line"><span class="comment">/* Styling */</span></div><div class="line"><span class="attribute">max-width</span>: <span class="number">10em</span>;</div><div class="line"><span class="attribute">min-height</span>: <span class="number">5em</span>;</div><div class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line"><span class="attribute">color</span>: white;</div><div class="line"><span class="attribute">font</span>: <span class="number">100%</span>/<span class="number">1</span> sans-serif;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://www.w3cplus.com/css3/how-to-use-css3-calc-function.html" target="_blank" rel="external">http://www.w3cplus.com/css3/how-to-use-css3-calc-function.html</a></p>
+<ol>
+<li>边框内圆角</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line"><span class="attribute">outline</span>: .<span class="number">6em</span> solid <span class="number">#655</span>;</div><div class="line"><span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> .<span class="number">4em</span> <span class="number">#655</span>; <span class="comment">/* todo calculate max of this */</span></div><div class="line"></div><div class="line"><span class="attribute">max-width</span>: <span class="number">10em</span>;</div><div class="line"><span class="attribute">border-radius</span>: .<span class="number">8em</span>;</div><div class="line"><span class="attribute">padding</span>: <span class="number">1em</span>;</div><div class="line"><span class="attribute">margin</span>: <span class="number">1em</span>;</div><div class="line"><span class="attribute">background</span>: tan;</div><div class="line"><span class="attribute">font</span>: <span class="number">100%</span>/<span class="number">1.5</span> sans-serif;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>线上演示：<a href="http://dabblet.com/gist/170fe436f290083cc24c" target="_blank" rel="external">http://dabblet.com/gist/170fe436f290083cc24c</a></p>
+<ol>
+<li>垂直居中<br><a href="http://begin5257.github.io/2016/06/03/vertical-align-div/" target="_blank" rel="external">http://begin5257.github.io/2016/06/03/vertical-align-div/</a></li>
+</ol>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/06/03/vertical-align-div/">如何优雅的实现垂直居中</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年6月3日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <blockquote>
+<p>“44年前我们就把人类送上月球了，但现在我们仍然无法再 CSS 中实现垂直居中。” –Jams Anderson</p>
+</blockquote>
+<p>在网页设计中，每当涉及到居中时，最重要的就是将元素及其父元素居中。听起来很简单，那你有没有考虑到很多的可能性呢(⊙o⊙)?</p>
+<h4 id="简单的：已知宽高的元素"><a href="#简单的：已知宽高的元素" class="headerlink" title="简单的：已知宽高的元素"></a>简单的：已知宽高的元素</h4><p>如果你同时知道一个元素的宽和高，并且要将元素相对其父元素垂直居中，那么使用绝对定位来实现或许是一种比较不错的办法。<br><img src="https://css-tricks.com/wp-content/uploads/2011/10/centered.gif" alt="已知宽高的元素"><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">main&#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: calc(<span class="number">50%</span> - <span class="number">3em</span>); <span class="comment">//向上移动等于父元素高度的50%及自身高度的一半</span></div><div class="line">    <span class="attribute">left</span>: calc(<span class="number">50%</span> - <span class="number">9em</span>); <span class="comment">//向左移动距离等于父元素宽度的50%及自身宽度的一半</span></div><div class="line">    <span class="attribute">width</span>: <span class="number">18em</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">6em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="进阶：-未知宽高的元素"><a href="#进阶：-未知宽高的元素" class="headerlink" title="进阶： 未知宽高的元素"></a>进阶： 未知宽高的元素</h4><p>但页面中很多元素都是未知宽高的。<br><img src="https://css-tricks.com/wp-content/uploads/2011/10/unknown.png" alt="未知宽高的元素"></p>
+<h5 id="基于绝对定位，进行扩展。"><a href="#基于绝对定位，进行扩展。" class="headerlink" title="基于绝对定位，进行扩展。"></a>基于绝对定位，进行扩展。</h5><p>当我们在使用 translate( ) 变形函数计算百分比值时，是以这个元素自身的高度和宽度为基准来进行换算和移动的。因此，只要换用基于百分比的 CSS 变形来对元素进行偏移，就不需要在编译量中将元素的尺寸写死了。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>( -50%, 50% );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="不适用绝对定位的情况"><a href="#不适用绝对定位的情况" class="headerlink" title="不适用绝对定位的情况"></a>不适用绝对定位的情况</h5><p>当我们不想使用绝对定位时，仍然可以用 translate( ) 来将这个元素以其自身宽高的一半为距离来进行移动。<br>可以使用 margin 来达到移动的效果。</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">main&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">18em</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">13</span>m <span class="number">1.5em</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">50vh</span> auto <span class="number">0</span>; <span class="comment">//外边距使用 vh 为单位，因为margin的百分比值是相对于其父元素的宽度作为基准解析，因此此处使用 vh</span></div><div class="line">    <span class="attribute">transform</span>: translateY( -<span class="number">50%</span> );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="基于table布局"><a href="#基于table布局" class="headerlink" title="基于table布局"></a>基于table布局</h5><p>CSS table 或许是个不错的选择。<br>因为 table 并不像常规块级元素一样渲染。比如说当元素宽 100% 时，table 只会占据其中实际内容的宽度，而默认的块级元素则会自动的占据父级元素的100%。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"100%"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"text-align: center; vertaical-align: center"</span>&gt;</span></div><div class="line">            我是垂直居中的！</div><div class="line">        <span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如果考虑到页面语义化，可以这么做</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.something-semantic</span> &#123;</div><div class="line">    <span class="attribute">display</span>: table;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.something-else-semantic</span> &#123;</div><div class="line">    <span class="attribute">display</span>: table-cell;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">    <span class="attribute">vertical-align</span>: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="行内块法"><a href="#行内块法" class="headerlink" title="行内块法"></a>行内块法</h5><p>我们甚至可以考虑使用伪元素。<br>如果我们将伪元素在父元素内占满 100% 的高度，然后我们将伪元素以及希望垂直居中的元素同时设置 vertrcal-align: center。</p>
+<ul>
+<li>然后我们就可以得到垂直居中的效果。<br><img src="https://css-tricks.com/wp-content/uploads/2011/10/ghost.png" alt=""><br>这是一种比较 hack 的方法。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.block</span> &#123;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">  <span class="attribute">white-space</span>: nowrap;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">/* 将高度撑到100% */</span></div><div class="line"><span class="selector-class">.block</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">  <span class="attribute">margin-right</span>: -<span class="number">0.25em</span>; <span class="comment">/* Adjusts for spacing */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* 要被垂直居中的元素，可以是任意宽高 */</span> </div><div class="line"><span class="selector-class">.centered</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="基于-Flexbox-的解决方案"><a href="#基于-Flexbox-的解决方案" class="headerlink" title="基于 Flexbox 的解决方案"></a>基于 Flexbox 的解决方案</h5><p>无疑是最佳的解决方案。因为 Flexbox 就是专门针对这类需求设计的😄<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">min-height</span>: <span class="number">100vh</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">margin</span>: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当居中元素内部文本也需要居中时：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">align-items</span>: center;</div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">    <span class="attribute">width</span>:<span class="number">18em</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">10em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>参考：<br>《 CSS 揭秘》<br><a href="http://css-tricks.com/centering-in-the-unknown" target="_blank" rel="external">http://css-tricks.com/centering-in-the-unknown</a><br>CSS 变形： <a href="http://w3.org/TR/css-transforms" target="_blank" rel="external">http://w3.org/TR/css-transforms</a><br>CSS 值与单位：<a href="http://w3.org/TR/css-values" target="_blank" rel="external">http://w3.org/TR/css-values</a><br>CSS 伸缩盒模型布局：<a href="http://w3.org/TR/css-flexbox" target="_blank" rel="external">http://w3.org/TR/css-flexbox</a></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/05/24/js-add/">JS求和方法总结</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年5月24日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">//normal</div><div class="line"><span class="built_in">var</span> <span class="built_in">array</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"></div><div class="line"><span class="built_in">var</span> sum1 = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span>(<span class="built_in">var</span> i = <span class="number">0</span> ;i &lt; <span class="built_in">array</span>.<span class="built_in">length</span> ;i++) &#123;</div><div class="line">sum1 += <span class="built_in">array</span>[i];</div><div class="line">&#125;</div><div class="line">console.<span class="built_in">log</span>(sum1);</div><div class="line"></div><div class="line">// <span class="built_in">array</span>.reduce</div><div class="line"><span class="built_in">var</span> sum2 = <span class="built_in">array</span>.reduce(function (a,b) &#123;</div><div class="line"><span class="built_in">return</span> a+b;</div><div class="line">&#125;);</div><div class="line">console.<span class="built_in">log</span>(sum2);</div><div class="line"></div><div class="line">// <span class="built_in">array</span>.<span class="built_in">map</span></div><div class="line"><span class="built_in">var</span> sum3 = <span class="number">0</span>;</div><div class="line">function getSum(item, index, <span class="built_in">array</span>) &#123;</div><div class="line">sum3 += item;</div><div class="line">&#125;</div><div class="line"><span class="built_in">array</span>.<span class="built_in">map</span>(getSum);</div><div class="line">console.<span class="built_in">log</span>(sum3);</div><div class="line"></div><div class="line">// <span class="symbol">_</span>.reduce</div><div class="line"><span class="built_in">var</span> sum4 = <span class="symbol">_</span>.reduce(<span class="built_in">array</span>, function(a, b)&#123;</div><div class="line"><span class="built_in">return</span> a + b;</div><div class="line">&#125;);</div><div class="line">console.<span class="built_in">log</span>(sum4);</div><div class="line"></div><div class="line">// <span class="symbol">_</span>.reduceRight</div><div class="line"><span class="built_in">var</span> sum5 = <span class="symbol">_</span>.reduceRight(<span class="built_in">array</span>,function (a,b) &#123;</div><div class="line"><span class="built_in">return</span> a+b;</div><div class="line">&#125;);</div><div class="line">console.<span class="built_in">log</span>(sum5);</div><div class="line"></div><div class="line">//邪恶的<span class="built_in">eval</span></div><div class="line"><span class="built_in">var</span> sum6 = <span class="built_in">eval</span>(<span class="built_in">array</span>.<span class="built_in">join</span>(<span class="string">"+"</span>));</div><div class="line">console.<span class="built_in">log</span>(sum6);</div><div class="line"></div><div class="line">//<span class="keyword">for</span> <span class="keyword">in</span></div><div class="line"><span class="built_in">var</span> sum7 = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span>( <span class="built_in">var</span> i <span class="keyword">in</span> <span class="built_in">array</span> ) &#123;                                             </div><div class="line">    sum7 += <span class="built_in">array</span>[i]                     </div><div class="line">&#125;</div><div class="line">console.<span class="built_in">log</span>(sum7);</div></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/04/28/css3-summary/">CSS布局(box-sizing,column,flex,inline-box布局)</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年4月28日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <ul>
+<li>布局除了 position，float之外，还可以使用 inline-box<ol>
+<li>vertical-align 属性会影响到 inline-block元素，你可能会把它的值设置为top。</li>
+<li>你需要设置每一列的宽度</li>
+<li>如果HTML源代码中元素之间有空格，那么列与列之间会产生空隙<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/inline-box20160428182717.png" alt=""><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">vertical-align</span>: top;</div><div class="line">    <span class="attribute">width</span>: <span class="number">25%</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid yellowgreen;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.column</span> &#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">vertical-align</span>: top;</div><div class="line">    <span class="attribute">width</span>: <span class="number">74%</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#66BAB7</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank" rel="external">更多display</a></p>
+<ul>
+<li>清除浮动<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/before-20160428182033.png" alt=""><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">1em</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#66BAB7</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.after-box</span> &#123;</div><div class="line">    <span class="attribute">clear</span>: left;<span class="comment">/*left和both都可以*/</span></div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid yellowgreen;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://7xspf8.com1.z0.glb.clouddn.com/after-20160428182021.png" alt=""><br><a href="http://zh.learnlayout.com/clearfix.html" target="_blank" rel="external">http://zh.learnlayout.com/clearfix.html</a><br><a href="http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best" target="_blank" rel="external">清除浮动水很深</a></p>
+<ul>
+<li>column<br>多列布局<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.three-column</span>&#123;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#66BAB7</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">1em</span>;</div><div class="line">    <span class="attribute">-webkit-column-count</span>: <span class="number">3</span>;</div><div class="line">    <span class="attribute">column-count</span>: <span class="number">3</span>;</div><div class="line">    <span class="attribute">-webkit-column-gap</span>: <span class="number">1em</span>;</div><div class="line">    <span class="attribute">column-gap</span>: <span class="number">1em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://7xspf8.com1.z0.glb.clouddn.com/column-20160428194453.png" alt="大概这么个效果"></p>
+<ul>
+<li>box-sizing<br>当你设置一个元素为 box-sizing: border-box 时，此元素的内边距和边框不再会增加它的宽度。<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*此时内边距和边框都不会增加它的宽度*/</span></div><div class="line"><span class="selector-class">.simple</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">20px</span> auto;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid blue;</div><div class="line">    <span class="attribute">-webkit-box-sizing</span>: border-box;</div><div class="line">    <span class="attribute">-moz-box-sizing</span>: border-box;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.fancy</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">20px</span> auto;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">10px</span> solid blue;</div><div class="line">    <span class="attribute">-webkit-box-sizing</span>: border-box;</div><div class="line">    <span class="attribute">-moz-box-sizing</span>: border-box;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://7xspf8.com1.z0.glb.clouddn.com/box-sizing-20160428195136.png" alt=""></p>
+<ul>
+<li><p>flex布局</p>
+<ol>
+<li><p>简单的 flex 布局<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/easy-flex-20160428195502.png" alt=""></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">display</span>: -webkit-flex;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">background</span>: lightblue;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#66BAB7</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.flex-column</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">-webkit-flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">background</span>: yellowgreen;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>复杂的 flex 布局<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/hard-flex-20160428195531.png" alt=""></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">display</span>: -webkit-flex;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.first</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: initial;</div><div class="line">    <span class="attribute">-webkit-flex</span>: initial;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">min-width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.none</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: none;</div><div class="line">    <span class="attribute">-webkit-flex</span>: none;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">background</span>: yellow;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.flex1</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">-webkit-flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">background</span>: yellowgreen;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.flex2</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">2</span>;</div><div class="line">    <span class="attribute">-webkit-flex</span>: <span class="number">2</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#66BAB7</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>居中 flex 布局<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/vertical-flex-20160428195552.png" alt=""></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.vertical-container</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">500px</span>;</div><div class="line">    <span class="attribute">display</span>: -webkit-flex;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">-webkit-align-items</span>: center;</div><div class="line">    <span class="attribute">align-items</span>: center;</div><div class="line">    <span class="attribute">-webkit-justify-content</span>: center;</div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.div</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">10px</span> solid <span class="number">#66BAB7</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<p>安利：<a href="http://zh.learnlayout.com/toc.html" target="_blank" rel="external">http://zh.learnlayout.com/toc.html</a></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/04/22/how-to-install-debian/">如何优雅的装系统--深度(Debian)</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年4月22日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>首先你需要一个U盘！<br>然后格式化它！<br>进入这个链接！<br><a href="https://www.deepin.org/download.html" target="_blank" rel="external">https://www.deepin.org/download.html</a><br>下完之后继续优雅的下载一个启动盘制作工具<br>之后<br><a href="http://wiki.deepin.org/index.php?title=%E5%8E%9F%E7%94%9F%E5%AE%89%E8%A3%85" target="_blank" rel="external">看官方文档</a><br>好的我们装好系统了！(注意硬盘分区)<br>首先换成zsh└(￣^￣ )┐</p>
+<p>接下来，第一步<br>你需要爬爬爬爬到墙的那边<br>我们选择 shadowsocks-qt5 编译源码安装<br><a href="https://github.com/shadowsocks/shadowsocks-qt5" target="_blank" rel="external">shadowsocks-qt5</a><br><a href="https://github.com/shadowsocks/shadowsocks-qt5/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97" target="_blank" rel="external">看文档</a><br>但是 libqtshadowsocks-dev 找不到安装包<br>嗯，比较傲娇<br>我们这样来<br><a href="https://github.com/shadowsocks/libQtShadowsocks" target="_blank" rel="external">libQtShadowsocks</a><br><a href="http://www.jianshu.com/p/0fac439b3d38" target="_blank" rel="external">看这个，说的很详细</a><br>好的我们装完shadowsocks了！</p>
+<p>第二步<br>配置好你的shadowsocks<br><a href="http://yun.baidu.com/s/1i3orYsP" target="_blank" rel="external">下载Proxy_SwitchySharp.crx</a><br><a href="http://pan.baidu.com/s/1c2DKg2c" target="_blank" rel="external">这个是我的bak配置文件</a><br>此时已能爬爬爬爬爬过墙了└(￣^￣ )┐</p>
+<p>第三步，作为我大前端，翻墙之后还有好多事情要做。<br>第一件，下个 Webstorm (///ω///)<br>//自己学怎么注册<br>第二件，node，npm <em>/ω＼</em>)<br>//自己摸索怎么添加环境变量<br>//不要用apt装node<br>第三件，npm换淘宝源<br><a href="http://npm.taobao.org/" target="_blank" rel="external">淘宝npm</a><br>第四件，ruby，sass<br><a href="https://ruby-china.org/wiki/install_ruby_guide" target="_blank" rel="external">如何快速装ruby</a><br><a href="https://ruby.taobao.org/" target="_blank" rel="external">淘宝ruby</a><br>第五件，添加新的ssh-key (๑•̀ㅁ•́ฅ)<br>第六件⋯⋯<br>第七件⋯⋯</p>
+<p>麻麻以后我不重新装系统了( •̩̩̩̩＿•̩̩̩̩ )</p>
+<p>好的好的今天的教程完 (-̇᷇̂ᴥ ̇᷇̂-)<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/1163471-eae767fdf7da805f.png" alt="先来张照骗"></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/04/19/resume-maker/">resume-maker 1.0留念</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年4月19日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>在开始校招的时候，大家都在紧张的准备简历。<br>Sketch，PS，AI……<br>我？？ (⊙v⊙)那拿CSS做一个！</p>
+<p>结果工作室蛮多小伙伴喜欢我的简历，于是就想说可不可以做一个简历生成器。<br>resume-maker 1.0就这样诞生啦~(≧▽≦)/~<br>基本的思路是：</p>
+<ol>
+<li>实现登录，注册，登录保持</li>
+<li>保证表单填入的数据刷新不丢失</li>
+<li>主题颜色可更换</li>
+<li>使用 express + mongodb + jade + semantic-ui + stylus 实现</li>
+</ol>
+<p>广受吐槽的简洁的不能再简洁登录界面：<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/1163471-4ebbc7ef5b1bda67.png" alt=""><br>广受吐槽的一口气填完必须否则强迫症会死表单界面：<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/1163471-22a87753bcebe4fc.png" alt=""></p>
+<p>广受吐槽的为什么只有一个模板简历界面：<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/1163471-3d30f38fa8fac3a2.png" alt=""></p>
+<p>麻麻我要设计%&gt;_&lt;%</p>
+<p>其实过程还是蛮头疼的。</p>
+<ul>
+<li><p>数据库的设计就是每位用户对应一份简历内容</p>
+</li>
+<li><p>采用 mongoose 与mongo连接。<br>因为简历需要的数据很多，所以每一个Schema里参数的定义就是一个大问题，我的解决方案是：给每一个参数定义一个类型( 有那么一点点心累 )</p>
+</li>
+<li><p>还有表单界面有些模块在添加完内容之后，需要让原先增加的模块继续保持存在。<br>我的解决办法是，将数据存入 localStorage，在生成页面时对 localStorage 中的数据进行判断，根据 localStorage 中的数据条数生成合适数量的表单并将 localStorage 中的数据展现在表单中。</p>
+</li>
+<li><p>主题颜色的控制：<br>目前全部采用 js 控制，but，即使原生js现在有了document.querySelectorAll这种类似作弊的 API ,还是很复杂啊(/≧-≦)/~┴┴<br>后来一拍脑门想起来我用的是 Stylus ……</p>
+</li>
+<li><p>HTML语义化：<br>一定要起合适且美观的id及类名，不然 heheda(ps:今天在蜻蜓FM的控制台里面看到了heheda～)<br>主要是自己后期会疯：)</p>
+</li>
+<li><p>cookie的控制( js发送cookie，node处理cookie )</p>
+</li>
+</ul>
+<p>因为被吐槽的地方太多，包括表单填写这种非常重要的交互方式。所以，我！要！重！构！<br>打算开始学习使用 react 框架，后端 Python ( 感谢后端小伙伴，再次鞠躬 )</p>
+<p>线上链接：<a href="http://resume-maker-e40c4.codingapp.com/" target="_blank" rel="external">http://resume-maker-e40c4.codingapp.com/</a><br>// 总之还是和我一起期待2.0吧 (⊙v⊙)</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/04/17/ali-front-end-test/">2016阿里前端实习生笔试</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年4月17日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <ul>
+<li>~ ~!null //1<br>~：按位非操作符由一个波浪线（~）表示，执行按位非的结果就是返回数值的反码。<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">~<span class="number">2</span> === <span class="number">-3</span>; <span class="comment">//true</span></div><div class="line">~<span class="number">1</span> === <span class="number">-2</span>; <span class="comment">//true</span></div><div class="line">~<span class="number">0</span> === <span class="number">-1</span>; <span class="comment">//true</span></div><div class="line">~<span class="number">-1</span> === <span class="number">0</span>; <span class="comment">//true</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>~~: 类似Math.floor()的用法，某些浏览器下比 Math.floor 渲染速度快<br><a href="http://rocha.la/JavaScript-bitwise-operators-in-practice" target="_blank" rel="external">http://rocha.la/JavaScript-bitwise-operators-in-practice</a></p>
+<ul>
+<li><p>选择合适的选择器选择第二个 p 标签</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>p1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>span1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>p2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>span2<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>div &gt; :nth-last-child(2)<br>//父元素倒数第二个元素</li>
+<li>p:nth-last-child(1)<br>//错误</li>
+<li>p:nth-last-of-type(1)<br>//仅匹配同种标签的元素，匹配到倒数第一个p</li>
+<li>p:nth-of-type(2)<br>//仅匹配同种标签的元素，匹配到第二个p</li>
+<li>p:nth-child(2)<br>//错误，匹配到父元素下的第二个元素<br><a href="http://www.ruanyifeng.com/blog/2009/03/css_selectors.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2009/03/css_selectors.html</a></li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>原生js相关基础</p>
+</li>
+<li><p>以下属性是否与 IE9 兼容</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">innerHTML<span class="regexp">/innerText/</span>children<span class="regexp">/childrennode/</span>classname</div></pre></td></tr></table></figure>
+</li>
+<li><p>防御XSS注入攻击</p>
+</li>
+<li><p>输入”www.taobao.com”，输出”moc.oab.www”</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="string">"www.taobao.com"</span>).replace(<span class="string">"tao"</span>,<span class="string">""</span>).<span class="built_in">split</span>(<span class="string">""</span>).<span class="built_in">reverse</span>().<span class="built_in">join</span>(<span class="string">""</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>css3动画1s内实现正方形翻转</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css">       </span></div><div class="line"> <span class="selector-id">#loading</span> &#123; </div><div class="line">           <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">            <span class="attribute">position</span>: absolute;</div><div class="line">            <span class="attribute">animation</span>: circling <span class="number">1s</span> linear <span class="number">0s</span> infinite;</div><div class="line">        &#125;</div><div class="line">        @<span class="keyword">keyframes</span> circling &#123;</div><div class="line">            <span class="selector-tag">from</span> &#123;</div><div class="line">                <span class="attribute">transform</span>: <span class="built_in">rotate</span>(0deg);</div><div class="line">            &#125;</div><div class="line">            <span class="selector-tag">to</span> &#123;</div><div class="line">                <span class="attribute">transform</span>: <span class="built_in">rotate</span>(360deg);</div><div class="line">            &#125;</div><div class="line">        &#125;    </div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"loading"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以前用css3写过一个摇头的(●—●)来着<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/20160125233507_A8NCe.thumb.700_0.png" alt=""><br><a href="http://begin5257.com/Baymax/" target="_blank" rel="external">http://begin5257.com/Baymax/</a><br><a href="https://github.com/Begin5257/beginExercise/blob/master/%E5%A4%A7%E7%99%BDcss2.0%2Findex.css" target="_blank" rel="external">github地址</a></p>
+<ul>
+<li>使用css3实现一个长这样的东西<img src="http://7xspf8.com1.z0.glb.clouddn.com/1163471-12dce4e6d7b63259.png" alt=""></li>
+</ul>
+<p>主要是星星和边框<br><a href="http://pinkyjie.com/2015/03/02/an-interesting-css-interview/" target="_blank" rel="external">原题</a> : )<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">       <span class="selector-tag">a</span>&#123;</div><div class="line">           <span class="attribute">border-radius</span>: <span class="number">10px</span>;</div><div class="line">           <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">1px</span> <span class="number">#eee</span>;</div><div class="line">           <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">29px</span> <span class="number">0</span> <span class="built_in">rgba</span>(222, 222, 222, 1) inset,<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">6px</span> <span class="number">#CACACA</span>, <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>        <span class="number">8px</span> <span class="number">#fff</span>, <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">10px</span> <span class="number">#696969</span>, <span class="number">0</span> <span class="number">2px</span> <span class="number">3px</span> <span class="number">11px</span> <span class="number">#CBCBCB</span>;</div><div class="line"></div><div class="line">           <span class="attribute">background</span>: <span class="built_in">rgba</span>(182, 182, 182, 0.6);</div><div class="line">       &#125;</div><div class="line">       <span class="selector-tag">a</span><span class="selector-pseudo">:before</span>, <span class="selector-tag">a</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">           <span class="attribute">font-size</span>: <span class="number">27px</span>;</div><div class="line">           <span class="attribute">color</span>: <span class="number">#888</span>;</div><div class="line">           <span class="attribute">content</span>: <span class="string">"★"</span>;</div><div class="line">           <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">1px</span> <span class="number">#fff</span>;</div><div class="line">       &#125;</div><div class="line">   <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>简述一个 js弹窗组件的实现思路</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">触发方式，弹窗内容，消失方式</div></pre></td></tr></table></figure>
+</li>
+<li><p>设计一个可以监控全站错误并且将错误上报的 js 模块</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">使用 <span class="keyword">try</span>-<span class="keyword">catch</span> / <span class="built_in">window</span>.onerror 捕获异常</div><div class="line">阻止常规报错</div><div class="line">使用 ajax 将异常发送到某个页面</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    
+    
+      <a class="next" href="/page/2/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+          </div>
+          
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="JavaScript-Array"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/02/13/JavaScript-Array/"/>
+
+
+<meta name="description" content="1.定义数组的标准定义是：一个存储元素的线性集合(collection)。JavaScript的数组是一种特殊的对象，用来表示偏移量的索引是该对象的属性。2.创建数组-var numbers = [];  //这种方法效率更高,why?-var numbers = new Array(10); //numbers.length 10-var objects = [1,”Mary”,true,nul">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-Array">
+<meta property="og:url" content="http://yoursite.com/2016/02/13/JavaScript-Array/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="1.定义数组的标准定义是：一个存储元素的线性集合(collection)。JavaScript的数组是一种特殊的对象，用来表示偏移量的索引是该对象的属性。2.创建数组-var numbers = [];  //这种方法效率更高,why?-var numbers = new Array(10); //numbers.length 10-var objects = [1,”Mary”,true,nul">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-Array">
+<meta name="twitter:description" content="1.定义数组的标准定义是：一个存储元素的线性集合(collection)。JavaScript的数组是一种特殊的对象，用来表示偏移量的索引是该对象的属性。2.创建数组-var numbers = [];  //这种方法效率更高,why?-var numbers = new Array(10); //numbers.length 10-var objects = [1,”Mary”,true,nul">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> JavaScript-Array · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          JavaScript-Array
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年2月13日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>1.定义<br>数组的标准定义是：一个存储元素的线性集合(collection)。<br>JavaScript的数组是一种特殊的对象，用来表示偏移量的索引是该对象的属性。<br>2.创建数组<br>-var numbers = [];  //这种方法效率更高,why?<br>-var numbers = new Array(10); //numbers.length 10<br>-var objects = [1,”Mary”,true,null];<br>3.读写数组</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//数据赋给数组</span></div><div class="line">var numbers = [];</div><div class="line">for ( var i=<span class="number">0</span>; i&lt;<span class="number">100</span> ;i++)&#123;</div><div class="line">    nums[i]= i+<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//读取数组</span></div><div class="line">var numbers =[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</div><div class="line">var sum =<span class="number">0</span>;</div><div class="line"><span class="comment">//使用length控制数组长度</span></div><div class="line">for( var i=<span class="number">0</span> ;i&lt;numbers.length; i++)&#123;</div><div class="line">    sum +=numbers[i];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>4.对数组进行整体性操作<br>当把一个数组赋给另一个数组时，只是为另一个数组增加了一个新的引用。当通过原引用修改数组的值时，另外一个引用也会感知到这个变化。<br>即新数组仍旧指向原来的数组。<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nums =[];</div><div class="line"><span class="keyword">for</span>( <span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++ )&#123;</div><div class="line">    <span class="built_in">num</span>[i]= i+<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> samenums =nums;</div><div class="line">nums[<span class="number">0</span>]=<span class="number">400</span>;</div><div class="line"><span class="built_in">print</span>(samenums[<span class="number">0</span>]); <span class="comment">// 400</span></div></pre></td></tr></table></figure></p>
+<p>一个更好的方案是采用深复制，将原数组的每一个元素都复制到新数组中。<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">funtion <span class="built_in">copy</span>(arr1,arr2)&#123;</div><div class="line">    <span class="keyword">for</span>( <span class="built_in">var</span> i=<span class="number">0</span>;i&lt;num1.<span class="built_in">length</span>;i++)&#123;</div><div class="line">        arr2[i]=arr1[i];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">var</span> nums =[];</div><div class="line"><span class="keyword">for</span>( <span class="built_in">var</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++ )&#123;</div><div class="line">    <span class="built_in">num</span>[i]= i+<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">var</span> samenums =[];</div><div class="line"><span class="built_in">copy</span>(nums,samenums);</div><div class="line">nums[<span class="number">0</span>]=<span class="number">400</span>;</div><div class="line"><span class="built_in">print</span>(samenums[<span class="number">0</span>]); // <span class="number">400</span></div></pre></td></tr></table></figure></p>
+<p>5.由字符串生成数组<br>split()方法</p>
+<p>6.存取函数<br>-查找元素 indexOf(),若目标数组包含该参数，则返回第一个参数的索引；若不存在，则返回-1;   var position = arr.indexOf(hello);<br>-lastIndexOf()返回最后一个参数的索引;<br>-join() 可以将数组转化为字符串 var str =arr.join();<br>-toString() 可以将数组转化为字符串  var str = arr.toString();<br>-concat() 合并数组  var newArr =arr2.concat(arr1);<br>-splice() 截取数组 var newArr =arr.splice(3,3) //第一个参数是起始索引，第二个参数是截取的长度</p>
+<p>7.可变函数<br>-push() 为数组末尾添加元素 arr.push(6);<br>-unshift() 为数组开头添加元素 nums.unshift(1,2);<br>-pop() 可以删除数组末尾的元素 nums.pop();<br>-shift() 可以删除数组开头的元素 nums.shift();<br>这个是不使用方法的增加数组的第一个元素<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nums =[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">var</span> <span class="keyword">new</span><span class="type">num</span> =<span class="number">1</span>;</div><div class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> =nums.length ; i&gt;<span class="number">0</span>; i++)&#123;</div><div class="line">    nums[i]=nums[i<span class="number">-1</span>];</div><div class="line">&#125;</div><div class="line">nums[<span class="number">0</span>] =<span class="keyword">new</span><span class="type">num</span>;</div><div class="line">print(nums)<span class="comment">//1,2,3,4,5</span></div></pre></td></tr></table></figure></p>
+<p>将删除的数组末尾元素追加的数组开始<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var nums =[<span class="number">6</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line">var last=nums.shift();</div><div class="line">nums.push(last);</div><div class="line">print(nums);<span class="comment">//1,2,3,4,5,6</span></div></pre></td></tr></table></figure></p>
+<p>8.从数组的中间位置添加或删除元素<br>采用splice()方法插入或删除元素，需要提供以下三个参数<br>-起始索引(希望开始添加元素的地方)<br>-需要删除的元素个数，添加元素时此项为0<br>-想要添加进数组的元素<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//添加元素</span></div><div class="line">nums.splice(<span class="number">3</span>,<span class="number">0</span>,[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]);</div><div class="line">nums.splice(<span class="number">3</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>);</div><div class="line"><span class="comment">//删除元素</span></div><div class="line">nums.splice(<span class="number">3</span>,<span class="number">4</span>);</div></pre></td></tr></table></figure></p>
+<p>9.为数组排序<br>-reverser() 该方法将数组中元素的顺序进行翻转<br>-sort() 该方法对字符串数组按照字典顺序进行排序<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span><span class="params">(num1,num2)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> num1 -num2;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> nums =[<span class="number">3</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>];</div><div class="line">nums.sort(compare);</div><div class="line"><span class="keyword">print</span>(nums); <span class="comment">//2,3,4,5,6</span></div></pre></td></tr></table></figure></p>
+<p>10.迭代器方法<br>    -forEach() 接受一个函数作为参数，对数组中每个元素使用该函数<br>    arr.forEach(square);<br>    -every() 接受一个返回值为Boolean类型的函数，对数组中每个元素使用该函数，若都为true，则返回true<br>    -some() 同上，但只要有一个为true，就返回true<br>    -reduce() 接受一个函数，返回一个值 对数组中所有元素进行累加<br>    -reduceRight() 同上，不过执行顺序从右到左<br>    -map() 生成新数组 类似forEach<br>    -filter() 同every，不过返回的是Boolean类型为true的元素</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//reduce</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span> <span class="params">(num1,num2)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> num1+num2;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>];</div><div class="line"><span class="keyword">var</span> sum =nums.reduce(add);</div><div class="line"><span class="keyword">print</span>(sum); <span class="comment">//55</span></div><div class="line"></div><div class="line"><span class="comment">//map()</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">curve</span><span class="params">(num)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> num+=<span class="number">5</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> grades =[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">var</span>  <span class="keyword">new</span> = grades.map(curve);</div><div class="line"><span class="keyword">print</span>(<span class="keyword">new</span>); <span class="comment">//6,7,8,9,10</span></div><div class="line"></div><div class="line"><span class="comment">//filter()</span></div><div class="line"><span class="comment">//过滤不包含cie的元素</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">expectCie</span><span class="params">(str)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(str.indexOf(<span class="string">"cie"</span>)&gt;<span class="number">-1</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> word = words.filter(expectCie);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/02/15/leetcode169/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">leetcode-169</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/02/12/leetcode258/">
+        <span class="next-text nav-default">leetcode-258</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

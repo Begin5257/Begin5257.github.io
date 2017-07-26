@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="如何优雅的实现垂直居中"/>
+
+
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/06/03/vertical-align-div/"/>
+
+
+<meta name="description" content="“44年前我们就把人类送上月球了，但现在我们仍然无法再 CSS 中实现垂直居中。” –Jams Anderson  在网页设计中，每当涉及到居中时，最重要的就是将元素及其父元素居中。听起来很简单，那你有没有考虑到很多的可能性呢(⊙o⊙)? 简单的：已知宽高的元素如果你同时知道一个元素的宽和高，并且要将元素相对其父元素垂直居中，那么使用绝对定位来实现或许是一种比较不错的办法。1234567main">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何优雅的实现垂直居中">
+<meta property="og:url" content="http://yoursite.com/2016/06/03/vertical-align-div/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="“44年前我们就把人类送上月球了，但现在我们仍然无法再 CSS 中实现垂直居中。” –Jams Anderson  在网页设计中，每当涉及到居中时，最重要的就是将元素及其父元素居中。听起来很简单，那你有没有考虑到很多的可能性呢(⊙o⊙)? 简单的：已知宽高的元素如果你同时知道一个元素的宽和高，并且要将元素相对其父元素垂直居中，那么使用绝对定位来实现或许是一种比较不错的办法。1234567main">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://css-tricks.com/wp-content/uploads/2011/10/centered.gif">
+<meta property="og:image" content="https://css-tricks.com/wp-content/uploads/2011/10/unknown.png">
+<meta property="og:image" content="https://css-tricks.com/wp-content/uploads/2011/10/ghost.png">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何优雅的实现垂直居中">
+<meta name="twitter:description" content="“44年前我们就把人类送上月球了，但现在我们仍然无法再 CSS 中实现垂直居中。” –Jams Anderson  在网页设计中，每当涉及到居中时，最重要的就是将元素及其父元素居中。听起来很简单，那你有没有考虑到很多的可能性呢(⊙o⊙)? 简单的：已知宽高的元素如果你同时知道一个元素的宽和高，并且要将元素相对其父元素垂直居中，那么使用绝对定位来实现或许是一种比较不错的办法。1234567main">
+<meta name="twitter:image" content="https://css-tricks.com/wp-content/uploads/2011/10/centered.gif">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 如何优雅的实现垂直居中 · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          如何优雅的实现垂直居中
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年6月3日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单的：已知宽高的元素"><span class="toc-text">简单的：已知宽高的元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进阶：-未知宽高的元素"><span class="toc-text">进阶： 未知宽高的元素</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#基于绝对定位，进行扩展。"><span class="toc-text">基于绝对定位，进行扩展。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#不适用绝对定位的情况"><span class="toc-text">不适用绝对定位的情况</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#基于table布局"><span class="toc-text">基于table布局</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#行内块法"><span class="toc-text">行内块法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#基于-Flexbox-的解决方案"><span class="toc-text">基于 Flexbox 的解决方案</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <blockquote>
+<p>“44年前我们就把人类送上月球了，但现在我们仍然无法再 CSS 中实现垂直居中。” –Jams Anderson</p>
+</blockquote>
+<p>在网页设计中，每当涉及到居中时，最重要的就是将元素及其父元素居中。听起来很简单，那你有没有考虑到很多的可能性呢(⊙o⊙)?</p>
+<h4 id="简单的：已知宽高的元素"><a href="#简单的：已知宽高的元素" class="headerlink" title="简单的：已知宽高的元素"></a>简单的：已知宽高的元素</h4><p>如果你同时知道一个元素的宽和高，并且要将元素相对其父元素垂直居中，那么使用绝对定位来实现或许是一种比较不错的办法。<br><img src="https://css-tricks.com/wp-content/uploads/2011/10/centered.gif" alt="已知宽高的元素"><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">main&#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: calc(<span class="number">50%</span> - <span class="number">3em</span>); <span class="comment">//向上移动等于父元素高度的50%及自身高度的一半</span></div><div class="line">    <span class="attribute">left</span>: calc(<span class="number">50%</span> - <span class="number">9em</span>); <span class="comment">//向左移动距离等于父元素宽度的50%及自身宽度的一半</span></div><div class="line">    <span class="attribute">width</span>: <span class="number">18em</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">6em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="进阶：-未知宽高的元素"><a href="#进阶：-未知宽高的元素" class="headerlink" title="进阶： 未知宽高的元素"></a>进阶： 未知宽高的元素</h4><p>但页面中很多元素都是未知宽高的。<br><img src="https://css-tricks.com/wp-content/uploads/2011/10/unknown.png" alt="未知宽高的元素"></p>
+<h5 id="基于绝对定位，进行扩展。"><a href="#基于绝对定位，进行扩展。" class="headerlink" title="基于绝对定位，进行扩展。"></a>基于绝对定位，进行扩展。</h5><p>当我们在使用 translate( ) 变形函数计算百分比值时，是以这个元素自身的高度和宽度为基准来进行换算和移动的。因此，只要换用基于百分比的 CSS 变形来对元素进行偏移，就不需要在编译量中将元素的尺寸写死了。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>( -50%, 50% );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="不适用绝对定位的情况"><a href="#不适用绝对定位的情况" class="headerlink" title="不适用绝对定位的情况"></a>不适用绝对定位的情况</h5><p>当我们不想使用绝对定位时，仍然可以用 translate( ) 来将这个元素以其自身宽高的一半为距离来进行移动。<br>可以使用 margin 来达到移动的效果。</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">main&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">18em</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">13</span>m <span class="number">1.5em</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">50vh</span> auto <span class="number">0</span>; <span class="comment">//外边距使用 vh 为单位，因为margin的百分比值是相对于其父元素的宽度作为基准解析，因此此处使用 vh</span></div><div class="line">    <span class="attribute">transform</span>: translateY( -<span class="number">50%</span> );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="基于table布局"><a href="#基于table布局" class="headerlink" title="基于table布局"></a>基于table布局</h5><p>CSS table 或许是个不错的选择。<br>因为 table 并不像常规块级元素一样渲染。比如说当元素宽 100% 时，table 只会占据其中实际内容的宽度，而默认的块级元素则会自动的占据父级元素的100%。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">style</span>=<span class="string">"100%"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"text-align: center; vertaical-align: center"</span>&gt;</span></div><div class="line">            我是垂直居中的！</div><div class="line">        <span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如果考虑到页面语义化，可以这么做</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.something-semantic</span> &#123;</div><div class="line">    <span class="attribute">display</span>: table;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.something-else-semantic</span> &#123;</div><div class="line">    <span class="attribute">display</span>: table-cell;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">    <span class="attribute">vertical-align</span>: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="行内块法"><a href="#行内块法" class="headerlink" title="行内块法"></a>行内块法</h5><p>我们甚至可以考虑使用伪元素。<br>如果我们将伪元素在父元素内占满 100% 的高度，然后我们将伪元素以及希望垂直居中的元素同时设置 vertrcal-align: center。</p>
+<ul>
+<li>然后我们就可以得到垂直居中的效果。<br><img src="https://css-tricks.com/wp-content/uploads/2011/10/ghost.png" alt=""><br>这是一种比较 hack 的方法。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.block</span> &#123;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">  <span class="attribute">white-space</span>: nowrap;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">/* 将高度撑到100% */</span></div><div class="line"><span class="selector-class">.block</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">  <span class="attribute">margin-right</span>: -<span class="number">0.25em</span>; <span class="comment">/* Adjusts for spacing */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* 要被垂直居中的元素，可以是任意宽高 */</span> </div><div class="line"><span class="selector-class">.centered</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="基于-Flexbox-的解决方案"><a href="#基于-Flexbox-的解决方案" class="headerlink" title="基于 Flexbox 的解决方案"></a>基于 Flexbox 的解决方案</h5><p>无疑是最佳的解决方案。因为 Flexbox 就是专门针对这类需求设计的😄<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">min-height</span>: <span class="number">100vh</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">margin</span>: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当居中元素内部文本也需要居中时：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">main</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">align-items</span>: center;</div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">    <span class="attribute">width</span>:<span class="number">18em</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">10em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>参考：<br>《 CSS 揭秘》<br><a href="http://css-tricks.com/centering-in-the-unknown" target="_blank" rel="external">http://css-tricks.com/centering-in-the-unknown</a><br>CSS 变形： <a href="http://w3.org/TR/css-transforms" target="_blank" rel="external">http://w3.org/TR/css-transforms</a><br>CSS 值与单位：<a href="http://w3.org/TR/css-values" target="_blank" rel="external">http://w3.org/TR/css-values</a><br>CSS 伸缩盒模型布局：<a href="http://w3.org/TR/css-flexbox" target="_blank" rel="external">http://w3.org/TR/css-flexbox</a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/CSS/">CSS</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/06/24/css-sercet-first/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">CSS揭秘📒</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/05/24/js-add/">
+        <span class="next-text nav-default">JS求和方法总结</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

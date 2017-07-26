@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="点滴云开发"/>
+
+
+
+
+  <meta name="keywords" content="Vue.js," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/04/07/diandi/"/>
+
+
+<meta name="description" content="线上地址：http://123.56.195.73/1.webpack.base.config中， 12345678910output: &amp;#123;path:path.resolve(__dirname,&apos;../dist/static&apos;),  //会build时在css和js之前加dist/static路径publicPath:&apos;/static/&apos;,  //build时会自动在图片文件之前加st">
+<meta name="keywords" content="Vue.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="点滴云开发">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/diandi/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="线上地址：http://123.56.195.73/1.webpack.base.config中， 12345678910output: &amp;#123;path:path.resolve(__dirname,&apos;../dist/static&apos;),  //会build时在css和js之前加dist/static路径publicPath:&apos;/static/&apos;,  //build时会自动在图片文件之前加st">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xspf8.com2.z0.glb.qiniucdn.com/homeweb.png">
+<meta property="og:image" content="http://7xspf8.com2.z0.glb.qiniucdn.com/homeh5.png">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="点滴云开发">
+<meta name="twitter:description" content="线上地址：http://123.56.195.73/1.webpack.base.config中， 12345678910output: &amp;#123;path:path.resolve(__dirname,&apos;../dist/static&apos;),  //会build时在css和js之前加dist/static路径publicPath:&apos;/static/&apos;,  //build时会自动在图片文件之前加st">
+<meta name="twitter:image" content="http://7xspf8.com2.z0.glb.qiniucdn.com/homeweb.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 点滴云开发 · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          点滴云开发
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年4月7日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>线上地址：<a href="http://123.56.195.73/" target="_blank" rel="external">http://123.56.195.73/</a><br>1.webpack.base.config中，</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="selector-tag">output</span>: &#123;</div><div class="line"></div><div class="line"><span class="attribute">path</span>:path.<span class="built_in">resolve</span>(__dirname,<span class="string">'../dist/static'</span>),  //会build时在css和js之前加dist/static路径</div><div class="line"></div><div class="line">publicPath:<span class="string">'/static/'</span>,  //build时会自动在图片文件之前加static路径</div><div class="line"></div><div class="line">filename:<span class="string">'[name].js'</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.vue内的js需要</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">'text/ecmascript-6'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line">export default<span class="template-variable">&#123;</span></div><div class="line"></div><div class="line">&#125;<span class="xml"></span></div></pre></td></tr></table></figure>
+<p>3.页面跳转会固定跳转到之前页面的位置，要加下面一行代码才行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">router.beforeEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.scrollTo(<span class="number">0</span>,<span class="number">0</span>)</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>4.最新版本的vue在app.vue中必须return一个参数，否则build出的静态页面会报错。</p>
+<p>5.如何使元素静止时是1px 的border，当鼠标hover时是3px的border而不引起元素浮动？</p>
+<p>答 ：在平时设置3px颜色为transparent的border。如果要变圆角，则加overflow:hidden</p>
+<p>6.stylus media query</p>
+<p>答：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@mediascreenand(<span class="attribute">max-width</span>:<span class="number">320px</span>)</div><div class="line"></div><div class="line"><span class="selector-id">#content</span> <span class="comment">//注意层级关系</span></div><div class="line"></div><div class="line"><span class="selector-tag">ul</span></div><div class="line"></div><div class="line"><span class="attribute">width</span> <span class="number">85%</span></div></pre></td></tr></table></figure>
+<p>7.ios和OX渲染input时会默认在内部加上padding，导致同等height的button和input看起来并不相等;input会默认加border-radius</p>
+<p>8.跑mongodb时会出现的错误：</p>
+<p>Unable to create/open lock file: /data/mongod.lock errno:13 Permission denied</p>
+<p>使用</p>
+<p>$ sudo mkdir -p /data/db/</p>
+<p>$ sudo chown <code>USERNAME</code> /data/db</p>
+<p>通过 whoami 获取USERNAME</p>
+<p>指定dbpath 启动 ./mongod  –dbpath /data/dbv</p>
+<p>首页效果：<img src="http://7xspf8.com2.z0.glb.qiniucdn.com/homeweb.png" alt=""><br>移动端效果：<img src="http://7xspf8.com2.z0.glb.qiniucdn.com/homeh5.png" alt=""></p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Vue-js/">Vue.js</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/04/14/jd-test/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">京东笔试整理</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/04/06/jQuery-ajax/">
+        <span class="next-text nav-default">jQuery-ajax</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

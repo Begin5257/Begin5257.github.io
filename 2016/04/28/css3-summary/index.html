@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="CSS布局(box-sizing,column,flex,inline-box布局)"/>
+
+
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/04/28/css3-summary/"/>
+
+
+<meta name="description" content="布局除了 position，float之外，还可以使用 inline-box vertical-align 属性会影响到 inline-block元素，你可能会把它的值设置为top。 你需要设置每一列的宽度 如果HTML源代码中元素之间有空格，那么列与列之间会产生空隙123456789101112nav &amp;#123;    display: inline-block;    vertical-a">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS布局(box-sizing,column,flex,inline-box布局)">
+<meta property="og:url" content="http://yoursite.com/2016/04/28/css3-summary/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="布局除了 position，float之外，还可以使用 inline-box vertical-align 属性会影响到 inline-block元素，你可能会把它的值设置为top。 你需要设置每一列的宽度 如果HTML源代码中元素之间有空格，那么列与列之间会产生空隙123456789101112nav &amp;#123;    display: inline-block;    vertical-a">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/inline-box20160428182717.png">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/before-20160428182033.png">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/after-20160428182021.png">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/column-20160428194453.png">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/box-sizing-20160428195136.png">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/easy-flex-20160428195502.png">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/hard-flex-20160428195531.png">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/vertical-flex-20160428195552.png">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS布局(box-sizing,column,flex,inline-box布局)">
+<meta name="twitter:description" content="布局除了 position，float之外，还可以使用 inline-box vertical-align 属性会影响到 inline-block元素，你可能会把它的值设置为top。 你需要设置每一列的宽度 如果HTML源代码中元素之间有空格，那么列与列之间会产生空隙123456789101112nav &amp;#123;    display: inline-block;    vertical-a">
+<meta name="twitter:image" content="http://7xspf8.com1.z0.glb.clouddn.com/inline-box20160428182717.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> CSS布局(box-sizing,column,flex,inline-box布局) · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          CSS布局(box-sizing,column,flex,inline-box布局)
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年4月28日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <ul>
+<li>布局除了 position，float之外，还可以使用 inline-box<ol>
+<li>vertical-align 属性会影响到 inline-block元素，你可能会把它的值设置为top。</li>
+<li>你需要设置每一列的宽度</li>
+<li>如果HTML源代码中元素之间有空格，那么列与列之间会产生空隙<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/inline-box20160428182717.png" alt=""><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">vertical-align</span>: top;</div><div class="line">    <span class="attribute">width</span>: <span class="number">25%</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid yellowgreen;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.column</span> &#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">vertical-align</span>: top;</div><div class="line">    <span class="attribute">width</span>: <span class="number">74%</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#66BAB7</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank" rel="external">更多display</a></p>
+<ul>
+<li>清除浮动<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/before-20160428182033.png" alt=""><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">1em</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#66BAB7</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.after-box</span> &#123;</div><div class="line">    <span class="attribute">clear</span>: left;<span class="comment">/*left和both都可以*/</span></div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid yellowgreen;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://7xspf8.com1.z0.glb.clouddn.com/after-20160428182021.png" alt=""><br><a href="http://zh.learnlayout.com/clearfix.html" target="_blank" rel="external">http://zh.learnlayout.com/clearfix.html</a><br><a href="http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best" target="_blank" rel="external">清除浮动水很深</a></p>
+<ul>
+<li>column<br>多列布局<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.three-column</span>&#123;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#66BAB7</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">1em</span>;</div><div class="line">    <span class="attribute">-webkit-column-count</span>: <span class="number">3</span>;</div><div class="line">    <span class="attribute">column-count</span>: <span class="number">3</span>;</div><div class="line">    <span class="attribute">-webkit-column-gap</span>: <span class="number">1em</span>;</div><div class="line">    <span class="attribute">column-gap</span>: <span class="number">1em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://7xspf8.com1.z0.glb.clouddn.com/column-20160428194453.png" alt="大概这么个效果"></p>
+<ul>
+<li>box-sizing<br>当你设置一个元素为 box-sizing: border-box 时，此元素的内边距和边框不再会增加它的宽度。<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*此时内边距和边框都不会增加它的宽度*/</span></div><div class="line"><span class="selector-class">.simple</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">20px</span> auto;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid blue;</div><div class="line">    <span class="attribute">-webkit-box-sizing</span>: border-box;</div><div class="line">    <span class="attribute">-moz-box-sizing</span>: border-box;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.fancy</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">20px</span> auto;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">10px</span> solid blue;</div><div class="line">    <span class="attribute">-webkit-box-sizing</span>: border-box;</div><div class="line">    <span class="attribute">-moz-box-sizing</span>: border-box;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://7xspf8.com1.z0.glb.clouddn.com/box-sizing-20160428195136.png" alt=""></p>
+<ul>
+<li><p>flex布局</p>
+<ol>
+<li><p>简单的 flex 布局<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/easy-flex-20160428195502.png" alt=""></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">display</span>: -webkit-flex;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">background</span>: lightblue;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#66BAB7</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.flex-column</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">-webkit-flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">background</span>: yellowgreen;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>复杂的 flex 布局<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/hard-flex-20160428195531.png" alt=""></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">display</span>: -webkit-flex;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.first</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: initial;</div><div class="line">    <span class="attribute">-webkit-flex</span>: initial;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">min-width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.none</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: none;</div><div class="line">    <span class="attribute">-webkit-flex</span>: none;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">background</span>: yellow;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.flex1</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">-webkit-flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">background</span>: yellowgreen;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.flex2</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">2</span>;</div><div class="line">    <span class="attribute">-webkit-flex</span>: <span class="number">2</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#66BAB7</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>居中 flex 布局<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/vertical-flex-20160428195552.png" alt=""></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.vertical-container</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">500px</span>;</div><div class="line">    <span class="attribute">display</span>: -webkit-flex;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">-webkit-align-items</span>: center;</div><div class="line">    <span class="attribute">align-items</span>: center;</div><div class="line">    <span class="attribute">-webkit-justify-content</span>: center;</div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.div</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">10px</span> solid <span class="number">#66BAB7</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<p>安利：<a href="http://zh.learnlayout.com/toc.html" target="_blank" rel="external">http://zh.learnlayout.com/toc.html</a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/CSS/">CSS</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/05/24/js-add/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">JS求和方法总结</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/04/22/how-to-install-debian/">
+        <span class="next-text nav-default">如何优雅的装系统--深度(Debian)</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="leetcode-189"/>
+
+
+
+
+  <meta name="keywords" content="leetcode," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/02/11/leetcode189/"/>
+
+
+<meta name="description" content="Rotate an array of n elements to the right by k steps. For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4]. Note:Try to come up as many solutions as you can, the">
+<meta name="keywords" content="leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-189">
+<meta property="og:url" content="http://yoursite.com/2016/02/11/leetcode189/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="Rotate an array of n elements to the right by k steps. For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4]. Note:Try to come up as many solutions as you can, the">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode-189">
+<meta name="twitter:description" content="Rotate an array of n elements to the right by k steps. For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4]. Note:Try to come up as many solutions as you can, the">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> leetcode-189 · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          leetcode-189
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年2月11日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>Rotate an array of n elements to the right by k steps.</p>
+<p>For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].</p>
+<p>Note:<br>Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.</p>
+<figure class="highlight zephir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">rotate</span><span class="params">(nums, k)</span> </span>&#123;</div><div class="line">   <span class="keyword">var</span> <span class="keyword">long</span> =nums.length;</div><div class="line">   <span class="keyword">if</span>(<span class="keyword">long</span>==k)&#123;</div><div class="line">     document.write(nums);</div><div class="line">   &#125;<span class="keyword">else</span>&#123;</div><div class="line">       <span class="keyword">var</span> delenums=nums.splice(<span class="keyword">long</span>-k,<span class="keyword">long</span>);</div><div class="line">       <span class="keyword">for</span>(<span class="keyword">var</span> i=k<span class="number">-1</span>; i&gt;<span class="number">0</span> ;i--)&#123;</div><div class="line">       nums.unshift(delenums[i]);</div><div class="line">       &#125;</div><div class="line">      document.write(nums);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>报错报的我对人生都失去希望了，该换一种思路。<br>其实没有必要移动k次，移动k%n次就可以，因为中间的一些步骤都是重复循环<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function">function <span class="title">rotate</span><span class="params">(nums, k)</span> </span>&#123;</div><div class="line">    var <span class="keyword">long</span> =nums.length;</div><div class="line">     k = k%<span class="keyword">long</span>;</div><div class="line">     dele = nums.splice(-k, k);</div><div class="line">    <span class="keyword">after</span> = nums.<span class="title">splice</span>(-k, k); </div><div class="line">    nums = <span class="keyword">after</span>.<span class="title">concat</span>(nums); </div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>诶诶诶辣鸡你怎么还特么的报错！<br>呜呜原来没认真看注释的内容sad :（<br><figure class="highlight puppet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * @<span class="keyword">param</span> &#123;number[]&#125; <span class="keyword">nums</span></div><div class="line"> * @<span class="keyword">param</span> &#123;number&#125; <span class="keyword">k</span></div><div class="line"> * @<span class="keyword">return</span> &#123;void&#125; <span class="keyword">Do</span> <span class="keyword">not</span> <span class="keyword">return</span> <span class="keyword">anything</span>, modify nums in-place instead.</div><div class="line"> */</div></pre></td></tr></table></figure></p>
+<p>哦辣鸡你居然不允许我给nums赋值，没关系我还有其他办法哈哈哈哈<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">rotate</span><span class="params">(nums, k)</span> &#123;</span></div><div class="line">  var long =nums.<span class="built_in">length</span>;</div><div class="line">  k = k<span class="comment">%long;</span></div><div class="line">  dele = nums.splice(-k, k);</div><div class="line">  <span class="keyword">for</span>(var <span class="built_in">i</span>=k<span class="number">-1</span>; <span class="built_in">i</span>&gt;=<span class="number">0</span> ;<span class="built_in">i</span>--)&#123;</div><div class="line">    nums.unshift(dele[i]); </div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>哈哈哈哈终于过了可是还有两种方法，下次来填~</p>
+<p>数组的一些方法：<br>-push() 为数组末尾添加元素 arr.push(6);<br>-unshift() 为数组开头添加元素 nums.unshift(1,2);<br>-pop() 可以删除数组末尾的元素 nums.pop();<br>-shift() 可以删除数组开头的元素 nums.shift();<br>采用splice()方法插入或删除元素，需要提供以下三个参数<br>-起始索引(希望开始添加元素的地方)<br>-需要删除的元素个数，添加元素时此项为0<br>-想要添加进数组的元素</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/leetcode/">leetcode</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/02/11/leetcode26/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">leetcode-26</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/02/10/leetcode303/">
+        <span class="next-text nav-default">leetcode-303</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

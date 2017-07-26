@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="resume-maker 1.0留念"/>
+
+
+
+
+  <meta name="keywords" content="node," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/04/19/resume-maker/"/>
+
+
+<meta name="description" content="在开始校招的时候，大家都在紧张的准备简历。Sketch，PS，AI……我？？ (⊙v⊙)那拿CSS做一个！ 结果工作室蛮多小伙伴喜欢我的简历，于是就想说可不可以做一个简历生成器。resume-maker 1.0就这样诞生啦~(≧▽≦)/~基本的思路是：  实现登录，注册，登录保持 保证表单填入的数据刷新不丢失 主题颜色可更换 使用 express + mongodb + jade + semant">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="resume-maker 1.0留念">
+<meta property="og:url" content="http://yoursite.com/2016/04/19/resume-maker/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="在开始校招的时候，大家都在紧张的准备简历。Sketch，PS，AI……我？？ (⊙v⊙)那拿CSS做一个！ 结果工作室蛮多小伙伴喜欢我的简历，于是就想说可不可以做一个简历生成器。resume-maker 1.0就这样诞生啦~(≧▽≦)/~基本的思路是：  实现登录，注册，登录保持 保证表单填入的数据刷新不丢失 主题颜色可更换 使用 express + mongodb + jade + semant">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/1163471-4ebbc7ef5b1bda67.png">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/1163471-22a87753bcebe4fc.png">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/1163471-3d30f38fa8fac3a2.png">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="resume-maker 1.0留念">
+<meta name="twitter:description" content="在开始校招的时候，大家都在紧张的准备简历。Sketch，PS，AI……我？？ (⊙v⊙)那拿CSS做一个！ 结果工作室蛮多小伙伴喜欢我的简历，于是就想说可不可以做一个简历生成器。resume-maker 1.0就这样诞生啦~(≧▽≦)/~基本的思路是：  实现登录，注册，登录保持 保证表单填入的数据刷新不丢失 主题颜色可更换 使用 express + mongodb + jade + semant">
+<meta name="twitter:image" content="http://7xspf8.com1.z0.glb.clouddn.com/1163471-4ebbc7ef5b1bda67.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> resume-maker 1.0留念 · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          resume-maker 1.0留念
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年4月19日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>在开始校招的时候，大家都在紧张的准备简历。<br>Sketch，PS，AI……<br>我？？ (⊙v⊙)那拿CSS做一个！</p>
+<p>结果工作室蛮多小伙伴喜欢我的简历，于是就想说可不可以做一个简历生成器。<br>resume-maker 1.0就这样诞生啦~(≧▽≦)/~<br>基本的思路是：</p>
+<ol>
+<li>实现登录，注册，登录保持</li>
+<li>保证表单填入的数据刷新不丢失</li>
+<li>主题颜色可更换</li>
+<li>使用 express + mongodb + jade + semantic-ui + stylus 实现</li>
+</ol>
+<p>广受吐槽的简洁的不能再简洁登录界面：<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/1163471-4ebbc7ef5b1bda67.png" alt=""><br>广受吐槽的一口气填完必须否则强迫症会死表单界面：<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/1163471-22a87753bcebe4fc.png" alt=""></p>
+<p>广受吐槽的为什么只有一个模板简历界面：<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/1163471-3d30f38fa8fac3a2.png" alt=""></p>
+<p>麻麻我要设计%&gt;_&lt;%</p>
+<p>其实过程还是蛮头疼的。</p>
+<ul>
+<li><p>数据库的设计就是每位用户对应一份简历内容</p>
+</li>
+<li><p>采用 mongoose 与mongo连接。<br>因为简历需要的数据很多，所以每一个Schema里参数的定义就是一个大问题，我的解决方案是：给每一个参数定义一个类型( 有那么一点点心累 )</p>
+</li>
+<li><p>还有表单界面有些模块在添加完内容之后，需要让原先增加的模块继续保持存在。<br>我的解决办法是，将数据存入 localStorage，在生成页面时对 localStorage 中的数据进行判断，根据 localStorage 中的数据条数生成合适数量的表单并将 localStorage 中的数据展现在表单中。</p>
+</li>
+<li><p>主题颜色的控制：<br>目前全部采用 js 控制，but，即使原生js现在有了document.querySelectorAll这种类似作弊的 API ,还是很复杂啊(/≧-≦)/~┴┴<br>后来一拍脑门想起来我用的是 Stylus ……</p>
+</li>
+<li><p>HTML语义化：<br>一定要起合适且美观的id及类名，不然 heheda(ps:今天在蜻蜓FM的控制台里面看到了heheda～)<br>主要是自己后期会疯：)</p>
+</li>
+<li><p>cookie的控制( js发送cookie，node处理cookie )</p>
+</li>
+</ul>
+<p>因为被吐槽的地方太多，包括表单填写这种非常重要的交互方式。所以，我！要！重！构！<br>打算开始学习使用 react 框架，后端 Python ( 感谢后端小伙伴，再次鞠躬 )</p>
+<p>线上链接：<a href="http://resume-maker-e40c4.codingapp.com/" target="_blank" rel="external">http://resume-maker-e40c4.codingapp.com/</a><br>// 总之还是和我一起期待2.0吧 (⊙v⊙)</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/node/">node</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/04/22/how-to-install-debian/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">如何优雅的装系统--深度(Debian)</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/04/17/ali-front-end-test/">
+        <span class="next-text nav-default">2016阿里前端实习生笔试</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

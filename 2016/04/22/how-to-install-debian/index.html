@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="如何优雅的装系统--深度(Debian)"/>
+
+
+
+
+  <meta name="keywords" content="Debian," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/04/22/how-to-install-debian/"/>
+
+
+<meta name="description" content="首先你需要一个U盘！然后格式化它！进入这个链接！https://www.deepin.org/download.html下完之后继续优雅的下载一个启动盘制作工具之后看官方文档好的我们装好系统了！(注意硬盘分区)首先换成zsh└(￣^￣ )┐ 接下来，第一步你需要爬爬爬爬到墙的那边我们选择 shadowsocks-qt5 编译源码安装shadowsocks-qt5看文档但是 libqtshadows">
+<meta name="keywords" content="Debian">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何优雅的装系统--深度(Debian)">
+<meta property="og:url" content="http://yoursite.com/2016/04/22/how-to-install-debian/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="首先你需要一个U盘！然后格式化它！进入这个链接！https://www.deepin.org/download.html下完之后继续优雅的下载一个启动盘制作工具之后看官方文档好的我们装好系统了！(注意硬盘分区)首先换成zsh└(￣^￣ )┐ 接下来，第一步你需要爬爬爬爬到墙的那边我们选择 shadowsocks-qt5 编译源码安装shadowsocks-qt5看文档但是 libqtshadows">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xspf8.com1.z0.glb.clouddn.com/1163471-eae767fdf7da805f.png">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何优雅的装系统--深度(Debian)">
+<meta name="twitter:description" content="首先你需要一个U盘！然后格式化它！进入这个链接！https://www.deepin.org/download.html下完之后继续优雅的下载一个启动盘制作工具之后看官方文档好的我们装好系统了！(注意硬盘分区)首先换成zsh└(￣^￣ )┐ 接下来，第一步你需要爬爬爬爬到墙的那边我们选择 shadowsocks-qt5 编译源码安装shadowsocks-qt5看文档但是 libqtshadows">
+<meta name="twitter:image" content="http://7xspf8.com1.z0.glb.clouddn.com/1163471-eae767fdf7da805f.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 如何优雅的装系统--深度(Debian) · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          如何优雅的装系统--深度(Debian)
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年4月22日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>首先你需要一个U盘！<br>然后格式化它！<br>进入这个链接！<br><a href="https://www.deepin.org/download.html" target="_blank" rel="external">https://www.deepin.org/download.html</a><br>下完之后继续优雅的下载一个启动盘制作工具<br>之后<br><a href="http://wiki.deepin.org/index.php?title=%E5%8E%9F%E7%94%9F%E5%AE%89%E8%A3%85" target="_blank" rel="external">看官方文档</a><br>好的我们装好系统了！(注意硬盘分区)<br>首先换成zsh└(￣^￣ )┐</p>
+<p>接下来，第一步<br>你需要爬爬爬爬到墙的那边<br>我们选择 shadowsocks-qt5 编译源码安装<br><a href="https://github.com/shadowsocks/shadowsocks-qt5" target="_blank" rel="external">shadowsocks-qt5</a><br><a href="https://github.com/shadowsocks/shadowsocks-qt5/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97" target="_blank" rel="external">看文档</a><br>但是 libqtshadowsocks-dev 找不到安装包<br>嗯，比较傲娇<br>我们这样来<br><a href="https://github.com/shadowsocks/libQtShadowsocks" target="_blank" rel="external">libQtShadowsocks</a><br><a href="http://www.jianshu.com/p/0fac439b3d38" target="_blank" rel="external">看这个，说的很详细</a><br>好的我们装完shadowsocks了！</p>
+<p>第二步<br>配置好你的shadowsocks<br><a href="http://yun.baidu.com/s/1i3orYsP" target="_blank" rel="external">下载Proxy_SwitchySharp.crx</a><br><a href="http://pan.baidu.com/s/1c2DKg2c" target="_blank" rel="external">这个是我的bak配置文件</a><br>此时已能爬爬爬爬爬过墙了└(￣^￣ )┐</p>
+<p>第三步，作为我大前端，翻墙之后还有好多事情要做。<br>第一件，下个 Webstorm (///ω///)<br>//自己学怎么注册<br>第二件，node，npm <em>/ω＼</em>)<br>//自己摸索怎么添加环境变量<br>//不要用apt装node<br>第三件，npm换淘宝源<br><a href="http://npm.taobao.org/" target="_blank" rel="external">淘宝npm</a><br>第四件，ruby，sass<br><a href="https://ruby-china.org/wiki/install_ruby_guide" target="_blank" rel="external">如何快速装ruby</a><br><a href="https://ruby.taobao.org/" target="_blank" rel="external">淘宝ruby</a><br>第五件，添加新的ssh-key (๑•̀ㅁ•́ฅ)<br>第六件⋯⋯<br>第七件⋯⋯</p>
+<p>麻麻以后我不重新装系统了( •̩̩̩̩＿•̩̩̩̩ )</p>
+<p>好的好的今天的教程完 (-̇᷇̂ᴥ ̇᷇̂-)<br><img src="http://7xspf8.com1.z0.glb.clouddn.com/1163471-eae767fdf7da805f.png" alt="先来张照骗"></p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Debian/">Debian</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/04/28/css3-summary/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">CSS布局(box-sizing,column,flex,inline-box布局)</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/04/19/resume-maker/">
+        <span class="next-text nav-default">resume-maker 1.0留念</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

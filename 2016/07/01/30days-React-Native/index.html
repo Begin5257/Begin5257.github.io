@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="30days-React-Native"/>
+
+
+
+
+  <meta name="keywords" content="React-Native," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/07/01/30days-React-Native/"/>
+
+
+<meta name="description" content="准备工作123451. npm install -g react-native-cli2. react-native init YourProjectName3. XCode 中打开刚刚创建的工程-AwesomeProject/ios/AwesomeProject.xcodeproj4. run5. 在index.ios.js中进行修改 flex布局123456789101112131415161">
+<meta name="keywords" content="React-Native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="30days-React-Native">
+<meta property="og:url" content="http://yoursite.com/2016/07/01/30days-React-Native/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="准备工作123451. npm install -g react-native-cli2. react-native init YourProjectName3. XCode 中打开刚刚创建的工程-AwesomeProject/ios/AwesomeProject.xcodeproj4. run5. 在index.ios.js中进行修改 flex布局123456789101112131415161">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day1.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day2.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day3.gif">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="30days-React-Native">
+<meta name="twitter:description" content="准备工作123451. npm install -g react-native-cli2. react-native init YourProjectName3. XCode 中打开刚刚创建的工程-AwesomeProject/ios/AwesomeProject.xcodeproj4. run5. 在index.ios.js中进行修改 flex布局123456789101112131415161">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day1.gif">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 30days-React-Native · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          30days-React-Native
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年7月1日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex布局"><span class="toc-text">flex布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#克隆项目"><span class="toc-text">克隆项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#index-ios-js"><span class="toc-text">index.ios.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#day1-计时器"><span class="toc-text">day1-计时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#day2-天气预报"><span class="toc-text">day2-天气预报</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#day3-Twitter开场动画"><span class="toc-text">day3-Twitter开场动画</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">1. </span>npm install -g react-native-cli</div><div class="line"><span class="bullet">2. </span>react-native init YourProjectName</div><div class="line"><span class="bullet">3. </span>XCode 中打开刚刚创建的工程-AwesomeProject/ios/AwesomeProject.xcodeproj</div><div class="line"><span class="bullet">4. </span>run</div><div class="line"><span class="bullet">5. </span>在index.ios.js中进行修改</div></pre></td></tr></table></figure>
+<h4 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">display: flex; //块级伸缩容器</div><div class="line">display: inline-flex; //行内级伸缩容器</div><div class="line"></div><div class="line">flex-direction: row; //水平方向，从左到右</div><div class="line">flex-direction: reverse; //水平方向，从右到左</div><div class="line">flex-direction: column; //垂直方向，从上到下</div><div class="line">flex-direction: column-reverse; //垂直方向，从下到上</div><div class="line"></div><div class="line">flex-wrap: nowrap; //默认值，不换行</div><div class="line">flex-wrap: wrap; //允许换行</div><div class="line">flex-wrap: wrap-reverse; //允许换行，若水平轴为主轴，则从下到上</div><div class="line"></div><div class="line">flex-flow: row nowrap;</div><div class="line">//伸缩项目在主轴上的对齐方式</div><div class="line">justify-content: flex-start; //默认值，从主轴起始位置靠齐</div><div class="line">justify-content: flex-end; //从主轴线结束位置靠齐</div><div class="line">justify-content: center;</div><div class="line">justify-content: space-between; //均匀分布在主轴，中间有空格</div><div class="line">justify-content: space-around; //同上，但是两边各会保留一半空间</div><div class="line">//伸缩项目在交叉轴上的对齐方式</div><div class="line">align-items: flex-start; //交叉轴起始位置</div><div class="line">align-items: flex-end;</div><div class="line">align-items: center;</div><div class="line">align-items: baseline; //根据基线对齐</div><div class="line">align-items: stretch; //交叉轴方向拉伸至整个容器</div><div class="line">//伸缩项目换行后在交叉轴上的对齐方式</div><div class="line">align-content: flex-start;</div><div class="line">align-content: flex-end;</div><div class="line">align-content: center;</div><div class="line">align-content: space-between; //伸缩项目在交叉轴中平均分布</div><div class="line">align-content: space-around; //同上，但在两边各有一半空间</div><div class="line">align-content: strectch; //在交叉轴延展以占用剩余空间</div><div class="line"></div><div class="line">order: -1; //定义项目的排列顺序</div><div class="line">flex-grow: 2; //定义伸缩项目的放大比例</div><div class="line">flex-shrink: 3; //定义伸缩项目的收缩能力</div><div class="line">flex-basis: 100px; //定义伸缩项目的基准值</div><div class="line">flex: none | flex-grow flex-shrink flex-basis</div></pre></td></tr></table></figure>
+<p>在react-native中支持flexbox</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">alignItems: flex-start | flex-end | center | stretch</div><div class="line">alignSelf: auto | flex-start | flex-end | center | strecth</div><div class="line">flex: number;</div><div class="line">flexDirection: row | column</div><div class="line">flexWrap: wrap | nowrap</div><div class="line">justifyContent: flex-start | flex-end | center | space-between | space-around</div></pre></td></tr></table></figure>
+<h4 id="克隆项目"><a href="#克隆项目" class="headerlink" title="克隆项目"></a>克隆项目</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git clone https:<span class="comment">//github.com/fangwei716/30-days-of-react-native.git</span></div><div class="line">git checkout <span class="symbol">RN@</span><span class="number">0.25</span></div><div class="line">react-<span class="keyword">native</span>-vector-icons</div><div class="line">需要手动将字体添加到Xcode的项目中</div><div class="line">首先将node_modules/react-<span class="keyword">native</span>-vector-icons中的Fonts拖拽到Xocde中</div><div class="line">编辑 Info.plist 添加你需要的字体</div></pre></td></tr></table></figure>
+<h4 id="index-ios-js"><a href="#index-ios-js" class="headerlink" title="index.ios.js"></a>index.ios.js</h4><ol>
+<li><p>API</p>
+<ul>
+<li><strong><em>AppRegistry是 JS 运行所有 React Native 应用的入口。</em></strong><br>应用的根组件应当通过AppRegistry.registerComponent方法注册自己，然后原生系统才可以加载应用的代码包并且在启动完成之后通过调用AppRegistry.runApplication来真正运行应用。</li>
+<li><p><strong><em>TouchableHighlight 当按下的时候，封装的视图的不透明度会降低</em></strong><br>同时会有一个底层的颜色透过而被用户看到，使得视图变暗或变亮。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">renderButton: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">TouchableHighlight</span> <span class="attr">onPress</span>=<span class="string">&#123;this._onPressButton&#125;</span>&gt;</span></span></div><div class="line">      <span class="tag">&lt;<span class="name">Image</span></span></div><div class="line">        <span class="attr">style</span>=<span class="string">&#123;styles.button&#125;</span></div><div class="line">        <span class="attr">source</span>=<span class="string">&#123;require(</span>'<span class="attr">.</span>/<span class="attr">button.png</span>')&#125;</div><div class="line">      /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">TouchableHighlight</span>&gt;</span></div><div class="line">  );</div><div class="line">&#125;,</div><div class="line">//TouchableHighlight只支持一个子节点</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong><em>NavigatorIOS 包装了UIKit的导航功能，可以使用左划功能来返回上一界面</em></strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>路由</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一个路由是用于描述导航器中一页的对象。</span></div><div class="line"><span class="attribute">render</span>: function() &#123;</div><div class="line">    return (</div><div class="line">      &lt; NavigatorIOS</div><div class="line">        initialRoute=&#123;&#123;</div><div class="line">          <span class="attribute">component</span>: MyView,</div><div class="line">          <span class="attribute">title</span>: <span class="string">'My View Title'</span>,</div><div class="line">          <span class="attribute">passProps</span>: &#123; <span class="attribute">myProp</span>: <span class="string">'foo'</span> &#125;,</div><div class="line">        &#125;&#125;</div><div class="line">      /&gt;</div><div class="line">    );</div><div class="line">&#125;</div><div class="line"><span class="comment">//现在 MyView 会被导航器渲染出来。它可以通过route</span></div><div class="line">属性获得对应的路由对象，导航器本身，还有所有<span class="selector-tag">passProps</span></div><div class="line">中传递的属性。</div></pre></td></tr></table></figure>
+</li>
+<li><p>导航器</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MyView = React.createClass(&#123;</div><div class="line">    _handleBackButtonPress: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">          <span class="keyword">this</span>.props.navigator.pop();</div><div class="line">    &#125;,</div><div class="line">    _handleNextButtonPress: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">          <span class="keyword">this</span>.props.navigator.push(nextRoute);</div><div class="line">   &#125;,</div><div class="line">  ...</div><div class="line">&#125;);</div><div class="line"><span class="comment">//一个导航器对象包括如下函数:</span></div><div class="line"><span class="comment">//1. push( route ) - 导航器跳转到一个新的路由</span></div><div class="line"><span class="comment">//2. pop() - 回到上一页</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="day1-计时器"><a href="#day1-计时器" class="headerlink" title="day1-计时器"></a>day1-计时器</h4><p>一个IOS系统定时APP，功能与系统定时器一致。<br><img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day1.gif" alt=""></p>
+<p>将页面分为时间显示部分，控制部分，显示计次共三个部分。<br>每个部分独立渲染组件和样式。<br>实现的功能有：启动定时器，计次，停止，复位。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//时间控制部分</span></div><div class="line"><span class="keyword">this</span>.setState(&#123;</div><div class="line">  <span class="attr">currentTime</span>: (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime()</div><div class="line">&#125;)</div><div class="line"><span class="comment">//当前时间 = 累加时间 + 当前时间 - 开始计时时间</span></div><div class="line">countingTime = <span class="keyword">this</span>.state.timeAccumulation + <span class="keyword">this</span>.state.currentTime - <span class="keyword">this</span>.state.initialTime;</div><div class="line"><span class="comment">//换算成时，分，秒</span></div><div class="line">minute = <span class="built_in">Math</span>.floor(countingTime/(<span class="number">60</span>*<span class="number">1000</span>));</div><div class="line">second = <span class="built_in">Math</span>.floor((countingTime<span class="number">-60000</span>*minute)/<span class="number">1000</span>);</div><div class="line">milSecond = <span class="built_in">Math</span>.floor((countingTime%<span class="number">1000</span>)/<span class="number">10</span>);</div><div class="line">seccountingTime = countingTime - <span class="keyword">this</span>.state.recordTime;</div><div class="line">secminute = <span class="built_in">Math</span>.floor(seccountingTime/(<span class="number">60</span>*<span class="number">1000</span>));</div><div class="line"><span class="comment">//这个地方原来的作者写错了6000，在git上提了issue</span></div><div class="line">secsecond = <span class="built_in">Math</span>.floor((seccountingTime<span class="number">-60000</span>*secminute)/<span class="number">1000</span>);</div><div class="line">secmilSecond = <span class="built_in">Math</span>.floor((seccountingTime%<span class="number">1000</span>)/<span class="number">10</span>);</div><div class="line"><span class="comment">//时，分，秒小于10则补零</span></div><div class="line"><span class="keyword">this</span>.setState(&#123;</div><div class="line">  <span class="attr">totalTime</span>: (minute&lt;<span class="number">10</span>? <span class="string">"0"</span>+minute:minute)+<span class="string">":"</span>+(second&lt;<span class="number">10</span>? <span class="string">"0"</span>+second:second)+<span class="string">"."</span>+(milSecond&lt;<span class="number">10</span>? <span class="string">"0"</span>+milSecond:milSecond),</div><div class="line">  <span class="attr">sectionTime</span>: (secminute&lt;<span class="number">10</span>? <span class="string">"0"</span>+secminute:secminute)+<span class="string">":"</span>+(secsecond&lt;<span class="number">10</span>? <span class="string">"0"</span>+secsecond:secsecond)+<span class="string">"."</span>+(secmilSecond&lt;<span class="number">10</span>? <span class="string">"0"</span>+secmilSecond:secmilSecond),</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="day2-天气预报"><a href="#day2-天气预报" class="headerlink" title="day2-天气预报"></a>day2-天气预报</h4><p>一个IOS系统的天气app，数据固定</p>
+<p><img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day2.gif" alt=""></p>
+<p>这一部分比较有难度的是对天气数据的展示处理。</p>
+<p>以及滑动时的状态变化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> propTypes = &#123;</div><div class="line">  <span class="attr">back</span>: React.PropTypes.func.isRequired,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">constructor</span>(props) &#123;</div><div class="line">  <span class="keyword">super</span>(props)</div><div class="line">  <span class="keyword">this</span>.state = &#123;</div><div class="line">    <span class="attr">weather</span>: weatherData,</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">componentDidMount() &#123;</div><div class="line">  StatusBar.setBarStyle(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">_back() &#123;</div><div class="line">  <span class="keyword">this</span>.props.back();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="day3-Twitter开场动画"><a href="#day3-Twitter开场动画" class="headerlink" title="day3-Twitter开场动画"></a>day3-Twitter开场动画</h4><p><img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/day3.gif" alt=""></p>
+<p>动画实现的思路是将中间的小图标放大，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">componentDidMount() &#123;</div><div class="line">    Animated.timing(</div><div class="line">       <span class="keyword">this</span>.state.transformAnim,</div><div class="line">       &#123;<span class="attr">toValue</span>: <span class="number">50</span>,</div><div class="line">        <span class="attr">duration</span>: <span class="number">1200</span>,</div><div class="line">        <span class="attr">delay</span>:<span class="number">2000</span>,</div><div class="line">        <span class="attr">easing</span>: Easing.elastic(<span class="number">2</span>),</div><div class="line">      &#125;,</div><div class="line">    ).start();</div><div class="line">    Animated.timing(</div><div class="line">       <span class="keyword">this</span>.state.opacityAnim,</div><div class="line">       &#123;<span class="attr">toValue</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">duration</span>: <span class="number">800</span>,</div><div class="line">        <span class="attr">easing</span>: Easing.elastic(<span class="number">1</span>),</div><div class="line">        <span class="attr">delay</span>:<span class="number">2200</span>,</div><div class="line">      &#125;,</div><div class="line">     ).start();</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">this</span>.props.hideThis();</div><div class="line">    &#125;, <span class="number">3300</span>);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>以及下拉刷新状态的控制</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">constructor</span>() &#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">      <span class="attr">isRefreshing</span>: <span class="literal">false</span>,</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  _onRefresh() &#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123;</div><div class="line">      <span class="attr">isRefreshing</span>: <span class="literal">true</span>,</div><div class="line">    &#125;);</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">this</span>.setState(&#123;</div><div class="line">        <span class="attr">isRefreshing</span>: <span class="literal">false</span>,</div><div class="line">      &#125;);</div><div class="line">    &#125;, <span class="number">1000</span>);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/React-Native/">React-Native</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/07/14/初探redux/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">初探redux</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/06/24/javascript-ninja/">
+        <span class="next-text nav-default">Javascript忍者秘籍📒</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

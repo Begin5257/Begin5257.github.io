@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="JavaScript-Summary(递归、闭包)"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/02/09/JavaScript-Summary(1)/"/>
+
+
+<meta name="description" content="假期来复习一下JavaScript，先从递归和闭包开始。 1.函数的声明方式有两种，一是函数声明，一是函数表达式。 1234function sayHi()&amp;#123;   alert(&quot;Hi&quot;); &amp;#125;sayHi(); 1234var sayHi = function()&amp;#123;    alert(&quot;Hi&quot;);&amp;#125;sayHi();//错误：函数不存在 2.递归   一个简单的">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-Summary(递归、闭包)">
+<meta property="og:url" content="http://yoursite.com/2016/02/09/JavaScript-Summary(1)/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="假期来复习一下JavaScript，先从递归和闭包开始。 1.函数的声明方式有两种，一是函数声明，一是函数表达式。 1234function sayHi()&amp;#123;   alert(&quot;Hi&quot;); &amp;#125;sayHi(); 1234var sayHi = function()&amp;#123;    alert(&quot;Hi&quot;);&amp;#125;sayHi();//错误：函数不存在 2.递归   一个简单的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-Summary(递归、闭包)">
+<meta name="twitter:description" content="假期来复习一下JavaScript，先从递归和闭包开始。 1.函数的声明方式有两种，一是函数声明，一是函数表达式。 1234function sayHi()&amp;#123;   alert(&quot;Hi&quot;); &amp;#125;sayHi(); 1234var sayHi = function()&amp;#123;    alert(&quot;Hi&quot;);&amp;#125;sayHi();//错误：函数不存在 2.递归   一个简单的">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> JavaScript-Summary(递归、闭包) · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          JavaScript-Summary(递归、闭包)
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年2月9日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>假期来复习一下JavaScript，先从递归和闭包开始。</p>
+<p>1.函数的声明方式有两种，一是函数声明，一是函数表达式。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span><span class="params">()</span></span>&#123;</div><div class="line">   alert(<span class="string">"Hi"</span>); </div><div class="line">&#125;</div><div class="line">sayHi();</div></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sayHi = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    alert(<span class="string">"Hi"</span>);</div><div class="line">&#125;</div><div class="line">sayHi();<span class="comment">//错误：函数不存在</span></div></pre></td></tr></table></figure>
+<p>2.递归<br>   一个简单的递归阶乘函数<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function <span class="built_in">factorial</span> (<span class="built_in">num</span>)&#123;</div><div class="line">  <span class="keyword">if</span>(<span class="built_in">num</span> &lt;=<span class="number">1</span> )&#123;</div><div class="line">      <span class="built_in">return</span> <span class="number">1</span>;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">   <span class="built_in">return</span> <span class="built_in">num</span> * <span class="built_in">factorial</span> (<span class="built_in">num</span>-<span class="number">1</span>);</div><div class="line">  //<span class="built_in">return</span> <span class="built_in">num</span> * arguments.callee (<span class="built_in">num</span>-<span class="number">1</span>);</div><div class="line">  //使用arguments.callee 比函数名更保险</div><div class="line">  //but 严格模式下此属性被禁用</div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>arguments.callee是一个指向正在执行函数的指针，可以利用它实现对函数的递归调用<br>或者采用命名函数表达式的方法<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> <span class="built_in">factorial</span> = (function f (<span class="built_in">num</span>)&#123;</div><div class="line">     <span class="keyword">if</span>(<span class="built_in">num</span> &lt;=<span class="number">1</span> )&#123;</div><div class="line">        <span class="built_in">return</span> <span class="number">1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">return</span> <span class="built_in">num</span> * f (<span class="built_in">num</span>-<span class="number">1</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>将命名为f() 的函数表达式赋值给 factorial，即使函数赋值给另一变量，递归也能正常的进行</p>
+<p>3.闭包<br>  由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数。<br>  在调用每个匿名函数时，立刻执行该匿名函数的结果赋值给数组。由于函数参数是按值传递的，因此就会将变量i的当前值赋值给参数num<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">    </div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span> ; i&lt;<span class="number">10</span> ;i++)&#123;</div><div class="line">        result[i] = <span class="function"><span class="keyword">function</span> (<span class="params">num</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> funtion()&#123;</div><div class="line">                <span class="keyword">return</span> num;    </div><div class="line">            &#125;</div><div class="line">        &#125;(i);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>一个有趣的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeAdder</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> x + y;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">var</span> add5 = makeAdder(<span class="number">5</span>);</div><div class="line"><span class="keyword">var</span> add10 = makeAdder(<span class="number">10</span>);</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(add5(<span class="number">2</span>));  <span class="comment">// 7</span></div><div class="line"><span class="built_in">console</span>.log(add10(<span class="number">2</span>)); <span class="comment">// 12</span></div></pre></td></tr></table></figure></p>
+<p>add5 和 add10 都是闭包。它们共享相同的函数定义，但是保存了不同的环境。在 add5 的环境中，x 为 5。<br>而在 add10 中，x 则为 10。</p>
+<p>4.关于this<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</div><div class="line"><span class="keyword">var</span> object = &#123;</div><div class="line">    name : <span class="string">"My Object"</span>,</div><div class="line">    getNameFunc : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">alert(object.getNameFunc()()); <span class="comment">//"The Window"</span></div></pre></td></tr></table></figure></p>
+<p>内部函数永远不可能直接访问到外部函数的argument对象和this对象，因此返回了全局name变量的值。<br>如果把外部作用域中的this对象保存在一个闭包可以访问的变量中，就可以让闭包访问该对象了~</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</div><div class="line">　　<span class="keyword">var</span> object = &#123;</div><div class="line">　　　　name : <span class="string">"My Object"</span>,</div><div class="line">　　　　getNameFunc : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">　　　　　　<span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">　　　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">　　　　　　　　<span class="keyword">return</span> that.name;</div><div class="line">　　　　　　&#125;;</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;;</div><div class="line">alert(object.getNameFunc()());<span class="comment">//“The Object”</span></div></pre></td></tr></table></figure>
+<p>5.块级作用域<br>用作块级作用域的匿名函数的语法如下：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">( <span class="function"><span class="keyword">function</span><span class="params">( )</span> </span>&#123;</div><div class="line">    <span class="comment">//code</span></div><div class="line">&#125;) ( );</div></pre></td></tr></table></figure></p>
+<p>无论在什么地方，只要临时需要一些变量，就可以使用私有作用域。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outputNumbers</span> <span class="params">( count )</span> </span>&#123; </div><div class="line">    (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span>( <span class="keyword">var</span> i=<span class="number">0</span>; i &lt;count ;i++)&#123;</div><div class="line">            alert(i);</div><div class="line">        &#125;</div><div class="line">    &#125;)( );</div><div class="line">    alert(i); <span class="comment">// i is not defined</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>6.用闭包模拟私有方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> makeCounter = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> privateCounter = <span class="number">0</span>;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">changeBy</span>(<span class="params">val</span>) </span>&#123;</div><div class="line">    privateCounter += val;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">increment</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      changeBy(<span class="number">1</span>);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">decrement</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      changeBy(<span class="number">-1</span>);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">value</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> privateCounter;</div><div class="line">    &#125;</div><div class="line">  &#125; </div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="keyword">var</span> Counter1 = makeCounter();</div><div class="line"><span class="keyword">var</span> Counter2 = makeCounter();</div><div class="line"><span class="built_in">console</span>.log(Counter1.value()); <span class="comment">//0</span></div><div class="line">Counter1.increment();</div><div class="line">Counter1.increment();</div><div class="line"><span class="built_in">console</span>.log(Counter1.value()); <span class="comment">//2</span></div><div class="line">Counter1.decrement();</div><div class="line"><span class="built_in">console</span>.log(Counter1.value()); <span class="comment">//1</span></div><div class="line"><span class="built_in">console</span>.log(Counter2.value()); <span class="comment">//0</span></div></pre></td></tr></table></figure></p>
+<p>两个计数器是有各自的独立性的。每次调用 makeCounter() 函数期间，其环境是不同的。<br>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures</a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/02/09/Tmall/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Tmall开发</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

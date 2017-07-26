@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="leetcode-13"/>
+
+
+
+
+  <meta name="keywords" content="leetcode," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/02/16/leetcode13/"/>
+
+
+<meta name="description" content="Roman to IntegerGiven a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999. 感觉思路被上一道题困住了(快放开我！)123456789101112131415161718function romanToInt(s) &amp;#123;">
+<meta name="keywords" content="leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-13">
+<meta property="og:url" content="http://yoursite.com/2016/02/16/leetcode13/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="Roman to IntegerGiven a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999. 感觉思路被上一道题困住了(快放开我！)123456789101112131415161718function romanToInt(s) &amp;#123;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode-13">
+<meta name="twitter:description" content="Roman to IntegerGiven a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999. 感觉思路被上一道题困住了(快放开我！)123456789101112131415161718function romanToInt(s) &amp;#123;">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> leetcode-13 · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          leetcode-13
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年2月16日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>Roman to Integer<br>Given a roman numeral, convert it to an integer.</p>
+<p>Input is guaranteed to be within the range from 1 to 3999.</p>
+<p>感觉思路被上一道题困住了(快放开我！)<br><figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">romanToInt</span>(<span class="params">s</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> <span class="built_in">int</span> =[];</div><div class="line">        <span class="keyword">var</span> str =[ <span class="string">"M"</span>, <span class="string">"CM"</span>, <span class="string">"D"</span>, <span class="string">"CD"</span>, <span class="string">"C"</span>, <span class="string">"XC"</span>, <span class="string">"L"</span>, <span class="string">"XL"</span>, <span class="string">"X"</span>, <span class="string">"IX"</span>, <span class="string">"V"</span>, <span class="string">"IV"</span>, <span class="string">"I"</span> ];</div><div class="line">        <span class="keyword">var</span> value =[<span class="number">1000</span>,<span class="number">900</span>,<span class="number">500</span>,<span class="number">400</span>, <span class="number">100</span>, <span class="number">90</span>,  <span class="number">50</span>, <span class="number">40</span>,  <span class="number">10</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt; s.length; i++)&#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;str.length;j++)&#123;</div><div class="line">                <span class="keyword">if</span>(s[i]==str[j])&#123;</div><div class="line">                    <span class="built_in">int</span>.push(value[j]);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">int</span>);</div><div class="line">        <span class="keyword">var</span> intsum=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;<span class="built_in">int</span>.length;j++)&#123;</div><div class="line">            intsum+=<span class="built_in">int</span>[j];</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(intsum);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>然而我不太清楚怎么区分两个数组排在一起用js写的方法</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span> romanToInt(<span class="keyword">String</span> s) &#123;</div><div class="line">    HashMap&lt;Character, Integer&gt; values = <span class="keyword">new</span> HashMap&lt;Character, Integer&gt;();</div><div class="line">    values.<span class="built_in">put</span>(<span class="string">'I'</span>,<span class="number">1</span>);</div><div class="line">    values.<span class="built_in">put</span>(<span class="string">'V'</span>,<span class="number">5</span>);</div><div class="line">    values.<span class="built_in">put</span>(<span class="string">'X'</span>,<span class="number">10</span>);</div><div class="line">    values.<span class="built_in">put</span>(<span class="string">'L'</span>,<span class="number">50</span>);</div><div class="line">    values.<span class="built_in">put</span>(<span class="string">'C'</span>,<span class="number">100</span>);</div><div class="line">    values.<span class="built_in">put</span>(<span class="string">'D'</span>,<span class="number">500</span>);</div><div class="line">    values.<span class="built_in">put</span>(<span class="string">'M'</span>,<span class="number">1000</span>);</div><div class="line"></div><div class="line">    <span class="keyword">int</span> ptr = s.length() - <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> curr;</div><div class="line">    <span class="keyword">int</span> prev = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="built_in">while</span>(ptr &gt;= <span class="number">0</span>) &#123;</div><div class="line">        curr = values.<span class="built_in">get</span>(s.charAt(ptr));</div><div class="line">        result = curr &gt;= prev ? (result + curr) : (result - curr);</div><div class="line">        prev = curr;</div><div class="line">        ptr--;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>熬，hashtable<br>明天再看</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/leetcode/">leetcode</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/02/16/leetcode12/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">leetcode-12</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/02/16/leetcode58/">
+        <span class="next-text nav-default">leetcode-58</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="Tmall开发"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/02/09/Tmall/"/>
+
+
+<meta name="description" content="1.29假期无聊，打算来临摹一个大型网站，练习一下js和css。效果如下：源码地址：https://github.com/Begin5257/Tmall.git喜欢天猫的黑红，所以就天猫啦。js全部基于原生js和jQuery。  一些需要注意的点：1、nav栏鼠标滑过出现div用jQuery实现，需要注意的是上面链接的背景颜色也要随着改变。2、小三角鼠标滑过变成倒三角小三角是这样的，将三边设成tr">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tmall开发">
+<meta property="og:url" content="http://yoursite.com/2016/02/09/Tmall/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="1.29假期无聊，打算来临摹一个大型网站，练习一下js和css。效果如下：源码地址：https://github.com/Begin5257/Tmall.git喜欢天猫的黑红，所以就天猫啦。js全部基于原生js和jQuery。  一些需要注意的点：1、nav栏鼠标滑过出现div用jQuery实现，需要注意的是上面链接的背景颜色也要随着改变。2、小三角鼠标滑过变成倒三角小三角是这样的，将三边设成tr">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://7xspf8.com2.z0.glb.qiniucdn.com/20160129233346_LxKEh.thumb.700_0.png">
+<meta property="og:image" content="http://7xspf8.com2.z0.glb.qiniucdn.com/20160130231434_WTnSh.thumb.700_0.png">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tmall开发">
+<meta name="twitter:description" content="1.29假期无聊，打算来临摹一个大型网站，练习一下js和css。效果如下：源码地址：https://github.com/Begin5257/Tmall.git喜欢天猫的黑红，所以就天猫啦。js全部基于原生js和jQuery。  一些需要注意的点：1、nav栏鼠标滑过出现div用jQuery实现，需要注意的是上面链接的背景颜色也要随着改变。2、小三角鼠标滑过变成倒三角小三角是这样的，将三边设成tr">
+<meta name="twitter:image" content="http://7xspf8.com2.z0.glb.qiniucdn.com/20160129233346_LxKEh.thumb.700_0.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> Tmall开发 · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Tmall开发
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年2月9日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>1.29<br>假期无聊，打算来临摹一个大型网站，练习一下js和css。<br>效果如下：<img src="http://7xspf8.com2.z0.glb.qiniucdn.com/20160129233346_LxKEh.thumb.700_0.png" alt=""><br>源码地址：<a href="https://github.com/Begin5257/Tmall.git" target="_blank" rel="external">https://github.com/Begin5257/Tmall.git</a><br>喜欢天猫的黑红，所以就天猫啦。<br>js全部基于原生js和jQuery。 </p>
+<p>一些需要注意的点：<br>1、nav栏鼠标滑过出现div<br>用jQuery实现，需要注意的是上面链接的背景颜色也要随着改变。<br>2、小三角鼠标滑过变成倒三角<br>小三角是这样的，将三边设成transparent即可得到<br>border-color:#bbbbbb transparent transparent<br>倒三角是这样：<br>border-color:transparent transparent #bbbbbb<br>3、出现的div上面有小尖头<br>利用b标签的border，原理同上<br>4、点击切换大图<br>利用原生js实现<br>5、图片轮播<br>利用原生js，复习了setTimeout的使用方法。</p>
+<p>今天的效果是这样的～</p>
+<p>1.30<br>今天主要解决了下滑固定div出现nav的效果。<br>效果如下：<img src="http://7xspf8.com2.z0.glb.qiniucdn.com/20160130231434_WTnSh.thumb.700_0.png" alt=""></p>
+<p>啊，鼠标滚轮真是个神奇的事件。<br>是难得一见的Firefox派和其他派系(一般都是IE和其他2333)</p>
+<p>•Firefox 鼠标滚轮向上滚动是-3，向下滚动是3<br>•IE 鼠标滚轮向上滚动是120，向下滚动是-120<br>•Safari 鼠标滚轮向上滚动是360，向下滚动是-360<br>•Opera 鼠标滚轮向上滚动是120，向下滚动是-120<br>•Chrome 鼠标滚轮向上滚动是120，向下滚动是-120</p>
+<p>反正JS可以根据正负判断向上滚还是向下滚，那么就好说了。<br>贴个源码：<br>//下滑鼠标出现隐藏nav,上滑隐藏<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showNav</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'main-content'</span>);</div><div class="line">    <span class="keyword">var</span> img=<span class="built_in">document</span>.getElementById(<span class="string">"scroll-img"</span>);</div><div class="line">    <span class="keyword">var</span> nav=<span class="built_in">document</span>.getElementById(<span class="string">"slide-nav"</span>);</div><div class="line">    <span class="comment">//addEventListener兼容IE</span></div><div class="line">    <span class="keyword">if</span> (div.addEventListener) &#123;</div><div class="line">        div.addEventListener(<span class="string">'DOMMouseScroll'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">            event = event || <span class="built_in">window</span>.event;</div><div class="line">            <span class="comment">//JavaScript获取鼠标滚轮值，这里的值只有“1”和“-1”两种情况</span></div><div class="line">            <span class="keyword">if</span>(event.wheelDelta&lt;<span class="number">0</span>) &#123;</div><div class="line">                nav.style.display = <span class="string">"inline"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;, <span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (img.addEventListener) &#123;</div><div class="line">        img.addEventListener(<span class="string">'DOMMouseScroll'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">            event = event || <span class="built_in">window</span>.event;</div><div class="line">            <span class="keyword">if</span>(event.wheelDelta&gt;<span class="number">0</span>)&#123;</div><div class="line">                nav.style.display=<span class="string">"none"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;, <span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    div.onmousewheel = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">        event = event || <span class="built_in">window</span>.event;</div><div class="line">        <span class="keyword">if</span>(event.wheelDelta&lt;<span class="number">0</span>)&#123;</div><div class="line">            nav.style.display=<span class="string">"inline"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    img.onmousewheel = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">        event = event || <span class="built_in">window</span>.event;</div><div class="line">        <span class="keyword">if</span>(event.wheelDelta&gt;<span class="number">0</span>)&#123;</div><div class="line">            nav.style.display=<span class="string">"none"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/02/09/ZhiHu/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">ZhiHu开发</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/02/09/JavaScript-Summary(1)/">
+        <span class="next-text nav-default">JavaScript-Summary(递归、闭包)</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

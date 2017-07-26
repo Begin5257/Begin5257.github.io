@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="学习总结"/>
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/page/5/"/>
+
+
+<meta name="description" content="学习总结">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Beginning">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="学习总结">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Beginning">
+<meta name="twitter:description" content="学习总结">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/02/09/ZhiHu/">ZhiHu开发</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年2月9日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>这是放假前还在学校时刚刚入手node做的一个知乎，如下：<br>效果如下：<img src="http://7xspf8.com2.z0.glb.qiniucdn.com/20160209165737_wUMCi.png" alt=""><br>github地址： <a href="https://github.com/Begin5257/ZhiHU.git" target="_blank" rel="external">https://github.com/Begin5257/ZhiHU.git</a><br>1.18<br>打算利用博客来记录每天遇到的问题以及明天要解决的一些问题～<br>最近在练习使用node，利用express＋MongoDB，用jade模版引擎写个知乎。<br>今天解决的问题：<br>question1：Linux下直接安装MongoDB版本为2.4.9（此版本新增用户是使用了addUser的命令且与2.6.5版本后的写法有较多不同），建议从官网直接选择合适版本下载安装。</p>
+<p>question2：安装最新版，卸载掉之前的版本后。Mongo命令行版本仍显示为2.4.9，切换数据库到根目录之后，命令行版本就更新了。</p>
+<p>question3：jQuery的Ajax写法较原生写法更为方便，兼容性更强。url直接写相对路径即可，例如／index</p>
+<p>questoin4：在admin里没有增加用户之前，访问MongoDB数据库时不需要用户名和密码。如果此时输入用户名和密码会显示认证失败。但在admin中增加用户之后，就需要有用户名和密码的认证了。 </p>
+<p>question5：mongoose是集成较好的MongoDB框架。要理解Schema，Model以及Entity的含义以及增删改查的写法。</p>
+<p>明天的任务：<br>question1：点击提问后全屏变暗并且出现提问框的js实现</p>
+<p>question2：如何关联ask表与answer表</p>
+<p>question3：循环取出的数据增加新的li元素</p>
+<p>效果如下：<img src="http://7xspf8.com2.z0.glb.qiniucdn.com/20160209165726_Sha8x.thumb.700_0.png" alt=""><br>1.19<br>今天解决的问题比较多＝ ＝<br>一个一个来说吧：）<br>question1：实现全屏变黑出现弹出框：写一个width，height均为100％，opacity为50％的div即可，注意position为absolute。</p>
+<p>question2：mongoose自带可以关联父表和子表的方法。<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> answerSchema = mongoose.<span class="type">Schema</span>(&#123;</div><div class="line">    askid:&#123;<span class="class"><span class="keyword">type</span></span>:mongoose.<span class="type">Schema</span>.<span class="type">Types</span>.<span class="type">ObjectId</span>,ref:<span class="symbol">'as</span>k'&#125;,</div><div class="line">    content:&#123;<span class="class"><span class="keyword">type</span></span>:<span class="type">String</span>&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>给每个answer增加一个askid，完成ask和answer的关联。</p>
+<p>question3：jade自带for循环。</p>
+<pre><code>ul.ask-demo 
+ each date,index in ask
+  li.ask-li
+   h2.ask-title #{date.title}
+   p.ask-content  #{date.content}
+</code></pre><p>此外，lade自带模板引擎还支持while、if、each语句</p>
+<p>question4：在routes中另外建一个文件mongo存放数据库操作的方法。<br>将方法export给对应的views，但是注意一个页面只能接受一个方法。<br>可以在方法中同时完成几种操作。</p>
+<p>var mongo = require(‘./‘mongo.js);<br>router.get(‘/‘ , mongo.askFind);</p>
+<p>注意的是：<br>1、require文件的时候，一定要加./，不然node会认为mongo是库函数<br>2、导出的方法（askFind）不是函数，后面不可以加（）<br>3、此外，调用router函数，及express函数的时候，参数req一定要写在res的前面</p>
+<p>question5：在people页面增加回答时，POST方法的url应该是相较于’／’而言的。<br>app.js页面规定了app.use(‘/people’,people);<br>因此post的ur应该为／people／people</p>
+<p>明天要解决的问题：<br>question1：jade的if判断<br>question2: 登录保持<br>收获：多研究官方文档，英文其实还蛮好懂的～</p>
+<p>1.20<br>昨天遇到了一个非常灵异的问题。<br>使用jade渲染时，使用了一个if判断，</p>
+<p>if data.id＝＝answer.askid<br>    p lalala<br>p ＃{data.id==answer.askid}</p>
+<p>然而，明明是相等的两个值，一直判断为false，我曾经一度怀疑自己瞎掉了（sad）<br>查询官方文档后发现官方给出的示例是这样的：</p>
+<p>if user＝＝’description’<br>     then hahahahha</p>
+<p>于是将ask和answer两个table console出来之后发现，啊，askid的type是number，而data.id是string，这有什么问题呢，问题就是askid不是String对象。<br>将askid的Schema类型改为String后就可以成功判断啦～</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/02/09/Tmall/">Tmall开发</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年2月9日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>1.29<br>假期无聊，打算来临摹一个大型网站，练习一下js和css。<br>效果如下：<img src="http://7xspf8.com2.z0.glb.qiniucdn.com/20160129233346_LxKEh.thumb.700_0.png" alt=""><br>源码地址：<a href="https://github.com/Begin5257/Tmall.git" target="_blank" rel="external">https://github.com/Begin5257/Tmall.git</a><br>喜欢天猫的黑红，所以就天猫啦。<br>js全部基于原生js和jQuery。 </p>
+<p>一些需要注意的点：<br>1、nav栏鼠标滑过出现div<br>用jQuery实现，需要注意的是上面链接的背景颜色也要随着改变。<br>2、小三角鼠标滑过变成倒三角<br>小三角是这样的，将三边设成transparent即可得到<br>border-color:#bbbbbb transparent transparent<br>倒三角是这样：<br>border-color:transparent transparent #bbbbbb<br>3、出现的div上面有小尖头<br>利用b标签的border，原理同上<br>4、点击切换大图<br>利用原生js实现<br>5、图片轮播<br>利用原生js，复习了setTimeout的使用方法。</p>
+<p>今天的效果是这样的～</p>
+<p>1.30<br>今天主要解决了下滑固定div出现nav的效果。<br>效果如下：<img src="http://7xspf8.com2.z0.glb.qiniucdn.com/20160130231434_WTnSh.thumb.700_0.png" alt=""></p>
+<p>啊，鼠标滚轮真是个神奇的事件。<br>是难得一见的Firefox派和其他派系(一般都是IE和其他2333)</p>
+<p>•Firefox 鼠标滚轮向上滚动是-3，向下滚动是3<br>•IE 鼠标滚轮向上滚动是120，向下滚动是-120<br>•Safari 鼠标滚轮向上滚动是360，向下滚动是-360<br>•Opera 鼠标滚轮向上滚动是120，向下滚动是-120<br>•Chrome 鼠标滚轮向上滚动是120，向下滚动是-120</p>
+<p>反正JS可以根据正负判断向上滚还是向下滚，那么就好说了。<br>贴个源码：<br>//下滑鼠标出现隐藏nav,上滑隐藏<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showNav</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'main-content'</span>);</div><div class="line">    <span class="keyword">var</span> img=<span class="built_in">document</span>.getElementById(<span class="string">"scroll-img"</span>);</div><div class="line">    <span class="keyword">var</span> nav=<span class="built_in">document</span>.getElementById(<span class="string">"slide-nav"</span>);</div><div class="line">    <span class="comment">//addEventListener兼容IE</span></div><div class="line">    <span class="keyword">if</span> (div.addEventListener) &#123;</div><div class="line">        div.addEventListener(<span class="string">'DOMMouseScroll'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">            event = event || <span class="built_in">window</span>.event;</div><div class="line">            <span class="comment">//JavaScript获取鼠标滚轮值，这里的值只有“1”和“-1”两种情况</span></div><div class="line">            <span class="keyword">if</span>(event.wheelDelta&lt;<span class="number">0</span>) &#123;</div><div class="line">                nav.style.display = <span class="string">"inline"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;, <span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (img.addEventListener) &#123;</div><div class="line">        img.addEventListener(<span class="string">'DOMMouseScroll'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">            event = event || <span class="built_in">window</span>.event;</div><div class="line">            <span class="keyword">if</span>(event.wheelDelta&gt;<span class="number">0</span>)&#123;</div><div class="line">                nav.style.display=<span class="string">"none"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;, <span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    div.onmousewheel = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">        event = event || <span class="built_in">window</span>.event;</div><div class="line">        <span class="keyword">if</span>(event.wheelDelta&lt;<span class="number">0</span>)&#123;</div><div class="line">            nav.style.display=<span class="string">"inline"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    img.onmousewheel = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">        event = event || <span class="built_in">window</span>.event;</div><div class="line">        <span class="keyword">if</span>(event.wheelDelta&gt;<span class="number">0</span>)&#123;</div><div class="line">            nav.style.display=<span class="string">"none"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/02/09/JavaScript-Summary(1)/">JavaScript-Summary(递归、闭包)</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年2月9日
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>假期来复习一下JavaScript，先从递归和闭包开始。</p>
+<p>1.函数的声明方式有两种，一是函数声明，一是函数表达式。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span><span class="params">()</span></span>&#123;</div><div class="line">   alert(<span class="string">"Hi"</span>); </div><div class="line">&#125;</div><div class="line">sayHi();</div></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sayHi = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    alert(<span class="string">"Hi"</span>);</div><div class="line">&#125;</div><div class="line">sayHi();<span class="comment">//错误：函数不存在</span></div></pre></td></tr></table></figure>
+<p>2.递归<br>   一个简单的递归阶乘函数<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function <span class="built_in">factorial</span> (<span class="built_in">num</span>)&#123;</div><div class="line">  <span class="keyword">if</span>(<span class="built_in">num</span> &lt;=<span class="number">1</span> )&#123;</div><div class="line">      <span class="built_in">return</span> <span class="number">1</span>;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">   <span class="built_in">return</span> <span class="built_in">num</span> * <span class="built_in">factorial</span> (<span class="built_in">num</span>-<span class="number">1</span>);</div><div class="line">  //<span class="built_in">return</span> <span class="built_in">num</span> * arguments.callee (<span class="built_in">num</span>-<span class="number">1</span>);</div><div class="line">  //使用arguments.callee 比函数名更保险</div><div class="line">  //but 严格模式下此属性被禁用</div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>arguments.callee是一个指向正在执行函数的指针，可以利用它实现对函数的递归调用<br>或者采用命名函数表达式的方法<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> <span class="built_in">factorial</span> = (function f (<span class="built_in">num</span>)&#123;</div><div class="line">     <span class="keyword">if</span>(<span class="built_in">num</span> &lt;=<span class="number">1</span> )&#123;</div><div class="line">        <span class="built_in">return</span> <span class="number">1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">return</span> <span class="built_in">num</span> * f (<span class="built_in">num</span>-<span class="number">1</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>将命名为f() 的函数表达式赋值给 factorial，即使函数赋值给另一变量，递归也能正常的进行</p>
+<p>3.闭包<br>  由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数。<br>  在调用每个匿名函数时，立刻执行该匿名函数的结果赋值给数组。由于函数参数是按值传递的，因此就会将变量i的当前值赋值给参数num<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">    </div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span> ; i&lt;<span class="number">10</span> ;i++)&#123;</div><div class="line">        result[i] = <span class="function"><span class="keyword">function</span> (<span class="params">num</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> funtion()&#123;</div><div class="line">                <span class="keyword">return</span> num;    </div><div class="line">            &#125;</div><div class="line">        &#125;(i);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>一个有趣的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeAdder</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> x + y;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">var</span> add5 = makeAdder(<span class="number">5</span>);</div><div class="line"><span class="keyword">var</span> add10 = makeAdder(<span class="number">10</span>);</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(add5(<span class="number">2</span>));  <span class="comment">// 7</span></div><div class="line"><span class="built_in">console</span>.log(add10(<span class="number">2</span>)); <span class="comment">// 12</span></div></pre></td></tr></table></figure></p>
+<p>add5 和 add10 都是闭包。它们共享相同的函数定义，但是保存了不同的环境。在 add5 的环境中，x 为 5。<br>而在 add10 中，x 则为 10。</p>
+<p>4.关于this<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</div><div class="line"><span class="keyword">var</span> object = &#123;</div><div class="line">    name : <span class="string">"My Object"</span>,</div><div class="line">    getNameFunc : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">alert(object.getNameFunc()()); <span class="comment">//"The Window"</span></div></pre></td></tr></table></figure></p>
+<p>内部函数永远不可能直接访问到外部函数的argument对象和this对象，因此返回了全局name变量的值。<br>如果把外部作用域中的this对象保存在一个闭包可以访问的变量中，就可以让闭包访问该对象了~</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</div><div class="line">　　<span class="keyword">var</span> object = &#123;</div><div class="line">　　　　name : <span class="string">"My Object"</span>,</div><div class="line">　　　　getNameFunc : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">　　　　　　<span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">　　　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">　　　　　　　　<span class="keyword">return</span> that.name;</div><div class="line">　　　　　　&#125;;</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;;</div><div class="line">alert(object.getNameFunc()());<span class="comment">//“The Object”</span></div></pre></td></tr></table></figure>
+<p>5.块级作用域<br>用作块级作用域的匿名函数的语法如下：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">( <span class="function"><span class="keyword">function</span><span class="params">( )</span> </span>&#123;</div><div class="line">    <span class="comment">//code</span></div><div class="line">&#125;) ( );</div></pre></td></tr></table></figure></p>
+<p>无论在什么地方，只要临时需要一些变量，就可以使用私有作用域。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outputNumbers</span> <span class="params">( count )</span> </span>&#123; </div><div class="line">    (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span>( <span class="keyword">var</span> i=<span class="number">0</span>; i &lt;count ;i++)&#123;</div><div class="line">            alert(i);</div><div class="line">        &#125;</div><div class="line">    &#125;)( );</div><div class="line">    alert(i); <span class="comment">// i is not defined</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>6.用闭包模拟私有方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> makeCounter = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> privateCounter = <span class="number">0</span>;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">changeBy</span>(<span class="params">val</span>) </span>&#123;</div><div class="line">    privateCounter += val;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">increment</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      changeBy(<span class="number">1</span>);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">decrement</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      changeBy(<span class="number">-1</span>);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">value</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> privateCounter;</div><div class="line">    &#125;</div><div class="line">  &#125; </div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="keyword">var</span> Counter1 = makeCounter();</div><div class="line"><span class="keyword">var</span> Counter2 = makeCounter();</div><div class="line"><span class="built_in">console</span>.log(Counter1.value()); <span class="comment">//0</span></div><div class="line">Counter1.increment();</div><div class="line">Counter1.increment();</div><div class="line"><span class="built_in">console</span>.log(Counter1.value()); <span class="comment">//2</span></div><div class="line">Counter1.decrement();</div><div class="line"><span class="built_in">console</span>.log(Counter1.value()); <span class="comment">//1</span></div><div class="line"><span class="built_in">console</span>.log(Counter2.value()); <span class="comment">//0</span></div></pre></td></tr></table></figure></p>
+<p>两个计数器是有各自的独立性的。每次调用 makeCounter() 函数期间，其环境是不同的。<br>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures</a></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    
+      <a class="prev" href="/page/4/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">Prev</span>
+      </a>
+    
+    
+  </nav>
+
+
+          </div>
+          
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>

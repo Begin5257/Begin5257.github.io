@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="CSS揭秘📒"/>
+
+
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+  <link rel="alternate" href="/default" title="Beginning">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/06/24/css-sercet-first/"/>
+
+
+<meta name="description" content="一些tips 使用百分比长度来取代固定长度。 需要在较大分辨率下得到固定宽度时，使用 max-width 而不是 width( max-width 可以适应较小的分辨率，无须媒体查询 ) 不要忘记为替换元素设计一个宽度，值为100% 当图片进行行列式布局时，可以使用弹性盒模型布局( flex )，或 display : inline-box 加上常规的文本折行来实现 多列文本时，指定 column">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS揭秘📒">
+<meta property="og:url" content="http://yoursite.com/2016/06/24/css-sercet-first/index.html">
+<meta property="og:site_name" content="Beginning">
+<meta property="og:description" content="一些tips 使用百分比长度来取代固定长度。 需要在较大分辨率下得到固定宽度时，使用 max-width 而不是 width( max-width 可以适应较小的分辨率，无须媒体查询 ) 不要忘记为替换元素设计一个宽度，值为100% 当图片进行行列式布局时，可以使用弹性盒模型布局( flex )，或 display : inline-box 加上常规的文本折行来实现 多列文本时，指定 column">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-07-26T06:48:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS揭秘📒">
+<meta name="twitter:description" content="一些tips 使用百分比长度来取代固定长度。 需要在较大分辨率下得到固定宽度时，使用 max-width 而不是 width( max-width 可以适应较小的分辨率，无须媒体查询 ) 不要忘记为替换元素设计一个宽度，值为100% 当图片进行行列式布局时，可以使用弹性盒模型布局( flex )，或 display : inline-box 加上常规的文本折行来实现 多列文本时，指定 column">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> CSS揭秘📒 · Beginning </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Beginning</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Beginning</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          CSS揭秘📒
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016年6月24日
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一些tips"><span class="toc-text">一些tips</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背景与边框"><span class="toc-text">背景与边框</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h3 id="一些tips"><a href="#一些tips" class="headerlink" title="一些tips"></a>一些tips</h3><ul>
+<li>使用百分比长度来取代固定长度。</li>
+<li>需要在较大分辨率下得到固定宽度时，使用 max-width 而不是 width<br>( max-width 可以适应较小的分辨率，无须媒体查询 )</li>
+<li>不要忘记为替换元素设计一个宽度，值为100%</li>
+<li>当图片进行行列式布局时，可以使用弹性盒模型布局( flex )，或 display : inline-box 加上常规的文本折行来实现</li>
+<li>多列文本时，指定 column-width 列宽，而不是 columm-count 列数。这样就可以在较小的屏幕上自动显示为单列布局</li>
+<li>合理使用简写</li>
+</ul>
+<p>预处理器( Stylus，Sass )</p>
+<ul>
+<li>变量，mixin，函数，规则嵌套</li>
+</ul>
+<h3 id="背景与边框"><a href="#背景与边框" class="headerlink" title="背景与边框"></a>背景与边框</h3><ol>
+<li>半透明边框<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.border-container</span>&#123;</div><div class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">600px</span>;</div><div class="line">        <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">"http://7xspf8.com2.z0.glb.qiniucdn.com/1467012841.jpg"</span>) no-repeat;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.border-div</span>&#123;</div><div class="line">        <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">        <span class="attribute">margin</span>: auto <span class="number">50px</span>;</div><div class="line">        <span class="attribute">border</span>: <span class="number">10px</span> solid <span class="built_in">rgba</span>(255,255,255,0.5);</div><div class="line">        <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">        <span class="attribute">background-clip</span>: padding-box;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>线上演示：<a href="http://dabblet.com/gist/012289cc14106a1bd7a5" target="_blank" rel="external">http://dabblet.com/gist/012289cc14106a1bd7a5</a></p>
+<ol>
+<li>多重边框<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.div</span> &#123;</div><div class="line"><span class="attribute">background</span>: yellowgreen;</div><div class="line"><span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="number">#655</span>,</div><div class="line">                <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">15px</span> deeppink,</div><div class="line">                <span class="number">0</span> <span class="number">2px</span> <span class="number">5px</span> <span class="number">15px</span> <span class="built_in">rgba</span>(0,0,0,.6);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>线上演示：<a href="http://dabblet.com/gist/525eb8e9cdade71723c1" target="_blank" rel="external">http://dabblet.com/gist/525eb8e9cdade71723c1</a><br><strong><em>若只需要两重边框也可以使用 outline ，可以利用 outline-offset 来控制和元素边缘的间距。( 可为负值 )</em></strong></p>
+<ol>
+<li>灵活的背景定位</li>
+</ol>
+<ul>
+<li>background-position </li>
+<li>background-position + background-origin</li>
+<li>calc( )方案 </li>
+<li>calc( )使用时，一定要在内部的 - 和 + 两个运算符侧各加一个空白符，否则会解析错误🙅</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line"><span class="attribute">background</span>: <span class="built_in">url</span>(http://csssecrets.io/images/code-pirate.svg)</div><div class="line">            no-repeat bottom right <span class="number">#58a</span>;</div><div class="line"><span class="attribute">background-position</span>: <span class="built_in">calc</span>(100% - 20px) <span class="built_in">calc</span>(100% - 10px);</div><div class="line"></div><div class="line"><span class="comment">/* Styling */</span></div><div class="line"><span class="attribute">max-width</span>: <span class="number">10em</span>;</div><div class="line"><span class="attribute">min-height</span>: <span class="number">5em</span>;</div><div class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line"><span class="attribute">color</span>: white;</div><div class="line"><span class="attribute">font</span>: <span class="number">100%</span>/<span class="number">1</span> sans-serif;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://www.w3cplus.com/css3/how-to-use-css3-calc-function.html" target="_blank" rel="external">http://www.w3cplus.com/css3/how-to-use-css3-calc-function.html</a></p>
+<ol>
+<li>边框内圆角</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line"><span class="attribute">outline</span>: .<span class="number">6em</span> solid <span class="number">#655</span>;</div><div class="line"><span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> .<span class="number">4em</span> <span class="number">#655</span>; <span class="comment">/* todo calculate max of this */</span></div><div class="line"></div><div class="line"><span class="attribute">max-width</span>: <span class="number">10em</span>;</div><div class="line"><span class="attribute">border-radius</span>: .<span class="number">8em</span>;</div><div class="line"><span class="attribute">padding</span>: <span class="number">1em</span>;</div><div class="line"><span class="attribute">margin</span>: <span class="number">1em</span>;</div><div class="line"><span class="attribute">background</span>: tan;</div><div class="line"><span class="attribute">font</span>: <span class="number">100%</span>/<span class="number">1.5</span> sans-serif;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>线上演示：<a href="http://dabblet.com/gist/170fe436f290083cc24c" target="_blank" rel="external">http://dabblet.com/gist/170fe436f290083cc24c</a></p>
+<ol>
+<li>垂直居中<br><a href="http://begin5257.github.io/2016/06/03/vertical-align-div/" target="_blank" rel="external">http://begin5257.github.io/2016/06/03/vertical-align-div/</a></li>
+</ol>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/CSS/">CSS</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/06/24/javascript-ninja/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Javascript忍者秘籍📒</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/06/03/vertical-align-div/">
+        <span class="next-text nav-default">如何优雅的实现垂直居中</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Begin5257</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>
